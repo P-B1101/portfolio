@@ -1,0 +1,58 @@
+[
+    {
+        "title": "Flutter",
+        "rate": 3
+    },
+    {
+        "title": "Dart",
+        "rate": 3
+    },
+    {
+        "title": "Java",
+        "rate": 3
+    },
+    {
+        "title": "Flutter Bloc",
+        "rate": 3
+    },
+    {
+        "title": "Object-Oriented Programming (OOP)",
+        "rate": 3
+    },
+    {
+        "title": "Bloc Design Pattern",
+        "rate": 3
+    },
+    {
+        "title": "Test Driven Development",
+        "rate": 2
+    },
+    {
+        "title": "Android Development",
+        "rate": 3
+    },
+    {
+        "title": "Rest API",
+        "rate": 3
+    },
+    {
+        "title": "Google Material Design",
+        "rate": 3
+    },
+    {
+        "title": "Google Maps",
+        "rate": 3
+    },
+    {
+        "title": "Push Notification",
+        "rate": 3
+    },
+    {
+        "title": "Notification",
+        "rate": 3
+    },
+    {
+        "title": "Animation",
+        "rate": 3
+    }
+]
