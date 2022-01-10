@@ -14,9 +14,11 @@ abstract class LanguageDataSource {
   /// throw [NoLanguageSavedException] if nothing found.
   ///
   AppLanguage get getLanguage;
+
+  AppLanguage get getLanguageOrDefault;
 }
 
-const LANGUAGE_KEY = 'LanguageKey';
+const languageKey = 'LanguageKey';
 
 class LanguageDataSourceImpl implements LanguageDataSource {
   final SharedPreferences localStorage;
@@ -27,12 +29,19 @@ class LanguageDataSourceImpl implements LanguageDataSource {
 
   @override
   Future<void> setLanguage(AppLanguage language) =>
-      localStorage.setString(LANGUAGE_KEY, language.language);
+      localStorage.setString(languageKey, language.language);
 
   @override
   AppLanguage get getLanguage {
-    final language = localStorage.getString(LANGUAGE_KEY);
+    final language = localStorage.getString(languageKey);
     if (language == null) throw NoLanguageSavedException();
+    return AppLanguageModel.fromString(language);
+  }
+
+  @override
+  AppLanguage get getLanguageOrDefault {
+    final language = localStorage.getString(languageKey);
+    if (language == null) return AppLanguageModel.defaultLanguage();
     return AppLanguageModel.fromString(language);
   }
 }

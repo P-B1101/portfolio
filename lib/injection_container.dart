@@ -1,6 +1,18 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
+import 'package:portfolio/feature/home/domain/use_case/get_info.dart';
+import 'package:portfolio/feature/home/domain/use_case/get_job_experiences.dart';
+import 'package:portfolio/feature/home/domain/use_case/get_profession.dart';
+import 'package:portfolio/feature/home/domain/use_case/get_projects.dart';
+import 'package:portfolio/feature/home/domain/use_case/get_skils.dart';
+import 'package:portfolio/feature/home/domain/use_case/get_softwares.dart';
+import 'package:portfolio/feature/home/presentation/bloc/info_bloc.dart';
+import 'package:portfolio/feature/home/presentation/bloc/job_experience_bloc.dart';
+import 'package:portfolio/feature/home/presentation/bloc/profession_bloc.dart';
+import 'package:portfolio/feature/home/presentation/bloc/project_bloc.dart';
+import 'package:portfolio/feature/home/presentation/bloc/skill_bloc.dart';
+import 'package:portfolio/feature/home/presentation/bloc/software_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'feature/home/data/data_source/home_data_source.dart';
@@ -93,12 +105,25 @@ void _initToastFeature() {
 void _initHomeFeature() {
   //  Bloc
   sl.registerFactory(() => EducationBloc(getEducations: sl()));
+  sl.registerFactory(() => InfoBloc(getInfo: sl()));
+  sl.registerFactory(() => JobExperienceBloc(getJobExperiences: sl()));
+  sl.registerFactory(() => ProfessionBloc(getProfession: sl()));
+  sl.registerFactory(() => ProjectBloc(getProjects: sl()));
+  sl.registerFactory(() => SkillBloc(getSkills: sl()));
+  sl.registerFactory(() => SoftwareBloc(getSoftwares: sl()));
   //  Cubit
   //  Use Cases
   sl.registerLazySingleton(() => GetEducations(repository: sl()));
+  sl.registerLazySingleton(() => GetInfo(repository: sl()));
+  sl.registerLazySingleton(() => GetJobExperiences(repository: sl()));
+  sl.registerLazySingleton(() => GetProfession(repository: sl()));
+  sl.registerLazySingleton(() => GetProjects(repository: sl()));
+  sl.registerLazySingleton(() => GetSkills(repository: sl()));
+  sl.registerLazySingleton(() => GetSoftwares(repository: sl()));
   //  Repository
   sl.registerLazySingleton<HomeRepository>(() => HomeRepositoryImpl(
         dataSource: sl(),
+        languageDataSource: sl(),
       ));
   //  Data Soureces
   sl.registerLazySingleton<HomeDataSource>(() => HomeDataSourceImpl());

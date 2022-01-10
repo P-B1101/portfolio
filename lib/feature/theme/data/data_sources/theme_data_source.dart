@@ -16,7 +16,7 @@ abstract class ThemeDataSource {
   AppTheme get getAppTheme;
 }
 
-const THEME_KEY = 'ThemeKey';
+const themeKey = 'ThemeKey';
 
 class ThemeDataSourceImpl implements ThemeDataSource {
   final SharedPreferences localStorage;
@@ -27,11 +27,11 @@ class ThemeDataSourceImpl implements ThemeDataSource {
 
   @override
   Future<void> setTheme(AppTheme theme) =>
-      localStorage.setInt(THEME_KEY, theme.id);
+      localStorage.setInt(themeKey, theme.id);
 
   @override
   AppTheme get getAppTheme {
-    final id = localStorage.getInt(THEME_KEY);
+    final id = localStorage.getInt(themeKey);
     if (id == null) throw NoThemeSavedException();
     return AppThemeModel.fromId(id);
   }

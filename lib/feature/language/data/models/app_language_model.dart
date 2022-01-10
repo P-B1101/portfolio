@@ -9,5 +9,5 @@ class AppLanguageModel extends AppLanguage {
       AppLanguageModel(language: language);
 
   factory AppLanguageModel.defaultLanguage() =>
-      AppLanguageModel(language: 'en');
+      const AppLanguageModel(language: 'en');
 }

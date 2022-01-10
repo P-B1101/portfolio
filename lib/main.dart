@@ -3,10 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:portfolio/feature/home/presentation/bloc/education_bloc.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'core/utils/assets.dart';
+import 'feature/home/presentation/bloc/education_bloc.dart';
+import 'feature/home/presentation/bloc/info_bloc.dart';
+import 'feature/home/presentation/bloc/job_experience_bloc.dart';
+import 'feature/home/presentation/bloc/profession_bloc.dart';
+import 'feature/home/presentation/bloc/project_bloc.dart';
+import 'feature/home/presentation/bloc/skill_bloc.dart';
+import 'feature/home/presentation/bloc/software_bloc.dart';
 import 'feature/home/presentation/page/home_page.dart';
 import 'feature/language/domain/entities/app_language.dart';
 import 'feature/language/presentation/cubit/language_cubit.dart';
@@ -30,6 +36,27 @@ void main() async {
         ),
         BlocProvider<ThemeCubit>(
           create: (context) => sl<ThemeCubit>(),
+        ),
+        BlocProvider<EducationBloc>(
+          create: (context) => sl<EducationBloc>(),
+        ),
+        BlocProvider<InfoBloc>(
+          create: (context) => sl<InfoBloc>(),
+        ),
+        BlocProvider<JobExperienceBloc>(
+          create: (context) => sl<JobExperienceBloc>(),
+        ),
+        BlocProvider<ProfessionBloc>(
+          create: (context) => sl<ProfessionBloc>(),
+        ),
+        BlocProvider<ProjectBloc>(
+          create: (context) => sl<ProjectBloc>(),
+        ),
+        BlocProvider<SkillBloc>(
+          create: (context) => sl<SkillBloc>(),
+        ),
+        BlocProvider<SoftwareBloc>(
+          create: (context) => sl<SoftwareBloc>(),
         ),
       ],
       child: const MyApp(),
@@ -153,14 +180,7 @@ class _MyAppState extends State<MyApp> {
         },
       );
 
-  Widget get _homePage => MultiBlocProvider(
-        providers: [
-          BlocProvider<EducationBloc>(
-            create: (context) => sl<EducationBloc>(),
-          ),
-        ],
-        child: const HomePage(),
-      );
+  Widget get _homePage => const HomePage();
 
   Widget get _pageNotFound => Scaffold(
         body: Builder(
