@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 /// entity for save selected language.
-/// 
+///
 class AppLanguage extends Equatable {
   final String language;
 
@@ -13,4 +13,6 @@ class AppLanguage extends Equatable {
   List<Object?> get props => [
         language,
       ];
+
+  bool get isFa => language == 'fa';
 }

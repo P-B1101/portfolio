@@ -41,3 +41,5 @@ extension StringExt on String {
 
   DateTime get toDate => DateTime.parse(this);
 }
+
+extension DateTimeExt on DateTime {}

@@ -10,6 +10,7 @@ abstract class ToastManager {
   Future<void> showToast({
     required BuildContext context,
     required String message,
+    int? number,
     ToastState state = ToastState.info,
   });
 }
@@ -25,6 +26,7 @@ class ToastManagerImpl implements ToastManager {
   Future<void> showToast({
     required BuildContext context,
     required String message,
+    int? number,
     ToastState state = ToastState.info,
   }) async {
     fToast.init(context);
@@ -32,14 +34,18 @@ class ToastManagerImpl implements ToastManager {
     final Widget child;
     switch (state) {
       case ToastState.info:
-        child = InfoToastWidget(message: message);
+        child = InfoToastWidget(
+          message: number == null ? message : '$message ($number)',
+        );
         break;
       case ToastState.success:
-        child = SuccessToastWidget(message: message);
+        child = SuccessToastWidget(
+          message: number == null ? message : '$message ($number)',
+        );
         break;
       case ToastState.error:
         child = ErrorToastWidget(
-          message: message,
+          message: number == null ? message : '$message ($number)',
         );
         break;
     }

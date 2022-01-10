@@ -32,14 +32,15 @@ class AppProviderState extends State<AppProvider> {
   bool get isExtraSmall => MediaQuery.of(context).size.width < 300;
 
   bool get isSmall => MediaQuery.of(context).size.width < 350;
-  bool get isTablet => false;
-  //  MediaQuery.of(context).size.width > 600;
-  bool get isWindow => false;
-  // MediaQuery.of(context).size.width > 1024;
+  bool get isTablet => MediaQuery.of(context).size.width > 600;
+  bool get isWindow => MediaQuery.of(context).size.width > 1024;
   bool get isDark => Theme.of(context).brightness == Brightness.dark;
 
   bool get isWebMobile =>
       kIsWeb &&
       (defaultTargetPlatform == TargetPlatform.iOS ||
           defaultTargetPlatform == TargetPlatform.android);
+
+  Duration get duration => const Duration(milliseconds: 300);
+  Curve get curve => Curves.ease;
 }

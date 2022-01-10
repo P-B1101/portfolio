@@ -112,12 +112,12 @@ class _MyAppState extends State<MyApp> {
         darkTheme: ThemeData(
           primaryColor: MyColors.primaryColor,
           scaffoldBackgroundColor: MyColors.backgroundColor,
+          backgroundColor: MyColors.secondBackgroundColor,
           brightness: Brightness.dark,
-          fontFamily: Fonts.poppins,
+          fontFamily: language.isFa ? Fonts.yekan : Fonts.poppins,
           textTheme: const TextTheme(
-            bodyText1: TextStyle(
-              color: MyColors.textColor,
-            ),
+            bodyText1: TextStyle(color: MyColors.textColor),
+            subtitle1: TextStyle(color: MyColors.subtitleColor),
           ),
         ),
         locale: Locale(language.language),

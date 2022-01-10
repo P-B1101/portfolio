@@ -10,5 +10,9 @@
     "software_title": "Software:",
     "liked_my_work_title": "Liked my works, Contact me:",
     "phone_label": "Phone",
-    "email_label": "Email"
+    "email_label": "Email",
+    "from_label": "From",
+    "until_label": "Until",
+    "now_label": "Now",
+    "virgul":","
 }

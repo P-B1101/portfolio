@@ -22,4 +22,6 @@ class Info extends Equatable {
         email,
         image,
       ];
+
+  String get getFullName => '$name $lastName';
 }

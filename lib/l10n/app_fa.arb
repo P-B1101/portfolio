@@ -10,5 +10,9 @@
     "software_title": "نرم افزار ها:",
     "liked_my_work_title": "راه های تماس با من:",
     "phone_label": "شماره همراه",
-    "email_label": "ایمیل"
+    "email_label": "ایمیل",
+    "from_label": "از",
+    "until_label": "تا",
+    "now_label": "الان",
+    "virgul": "،"
 }
