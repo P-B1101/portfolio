@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
     required AppTheme theme,
   }) =>
       MaterialApp(
-        title: 'Portfilio',
+        title: 'Portfolio',
         debugShowCheckedModeBanner: false,
         themeMode: theme.theme,
         // theme: ThemeData(

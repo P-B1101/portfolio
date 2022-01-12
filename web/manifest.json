@@ -1,11 +1,11 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "Portfolio",
+    "short_name": "Portfolio",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#FFB900",
+    "theme_color": "#FFB900",
+    "description": "This is my online resume.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
