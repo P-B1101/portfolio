@@ -2,7 +2,6 @@ import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/assets.dart';
-import '../../../language/utils/local_language.dart';
 import '../../../provider/presentation/widgets/app_provider.dart';
 import '../../domain/entity/project.dart';
 

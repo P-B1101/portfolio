@@ -28,13 +28,15 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    context.read<EducationBloc>().add(GetEducationsEvent());
-    context.read<InfoBloc>().add(GetInfoEvent());
-    context.read<JobExperienceBloc>().add(GetJobExperienceEvent());
-    context.read<ProfessionBloc>().add(GetProfessionEvent());
-    context.read<ProjectBloc>().add(GetProjectEvent());
-    context.read<SkillBloc>().add(GetSkillEvent());
-    context.read<SoftwareBloc>().add(GetSoftwareEvent());
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      context.read<EducationBloc>().add(GetEducationsEvent());
+      context.read<InfoBloc>().add(GetInfoEvent());
+      context.read<JobExperienceBloc>().add(GetJobExperienceEvent());
+      context.read<ProfessionBloc>().add(GetProfessionEvent());
+      context.read<ProjectBloc>().add(GetProjectEvent());
+      context.read<SkillBloc>().add(GetSkillEvent());
+      context.read<SoftwareBloc>().add(GetSoftwareEvent());
+    });
   }
 
   @override

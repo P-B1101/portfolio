@@ -1,11 +1,10 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/feature/home/domain/entity/job_experience.dart';
-import 'package:portfolio/feature/language/utils/local_language.dart';
-import 'package:portfolio/feature/provider/presentation/widgets/app_provider.dart';
 
 import '../../../../core/utils/assets.dart';
-import '../../domain/entity/education.dart';
+import '../../../language/utils/local_language.dart';
+import '../../../provider/presentation/widgets/app_provider.dart';
+import '../../domain/entity/job_experience.dart';
 
 class JobExperienceWidget extends StatelessWidget {
   final JobExperience experience;

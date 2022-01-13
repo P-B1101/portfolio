@@ -126,5 +126,7 @@ void _initHomeFeature() {
         languageDataSource: sl(),
       ));
   //  Data Soureces
-  sl.registerLazySingleton<HomeDataSource>(() => HomeDataSourceImpl());
+  sl.registerLazySingleton<HomeDataSource>(() => HomeDataSourceImpl(
+        client: sl(),
+      ));
 }

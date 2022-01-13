@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/feature/grid/presentation/widget/grid_widget.dart';
-import 'package:portfolio/feature/home/domain/entity/job_experience.dart';
-import 'package:portfolio/feature/home/presentation/bloc/education_bloc.dart';
-import 'package:portfolio/feature/home/presentation/bloc/job_experience_bloc.dart';
-import 'package:portfolio/feature/home/presentation/bloc/project_bloc.dart';
-import 'package:portfolio/feature/home/presentation/bloc/skill_bloc.dart';
-import 'package:portfolio/feature/home/presentation/widget/education_widget.dart';
-import 'package:portfolio/feature/home/presentation/widget/job_experience_widget.dart';
-import 'package:portfolio/feature/home/presentation/widget/project_widget.dart';
-import 'package:portfolio/feature/home/presentation/widget/skill_widget.dart';
-import 'package:portfolio/feature/home/presentation/widget/slogan_widget.dart';
-import 'package:portfolio/feature/home/presentation/widget/title_widget.dart';
-import 'package:portfolio/feature/language/utils/local_language.dart';
 
+import '../../../../grid/presentation/widget/grid_widget.dart';
+import '../../../../language/utils/local_language.dart';
+import '../../bloc/education_bloc.dart';
+import '../../bloc/job_experience_bloc.dart';
+import '../../bloc/project_bloc.dart';
+import '../../bloc/skill_bloc.dart';
+import '../../widget/education_widget.dart';
 import '../../widget/info_widget.dart';
+import '../../widget/job_experience_widget.dart';
+import '../../widget/project_widget.dart';
+import '../../widget/skill_widget.dart';
+import '../../widget/slogan_widget.dart';
+import '../../widget/title_widget.dart';
 import '../../widget/user_image_widget.dart';
 
 class HomePageWindow extends StatelessWidget {

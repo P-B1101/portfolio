@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/feature/provider/presentation/widgets/app_provider.dart';
@@ -25,13 +26,13 @@ class UserImageWidget extends StatelessWidget {
             child: state.info?.image != null
                 ? ClipOval(
                     child: SizedBox.expand(
-                      child: Image.asset(
-                        state.info?.image ?? '',
+                      child: CachedNetworkImage(
+                        imageUrl: state.info?.image ?? '',
                         width: double.infinity,
                         height: double.infinity,
                         alignment: Alignment.topCenter,
                         fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) =>
+                        errorWidget: (context, error, stackTrace) =>
                             const SizedBox(),
                       ),
                     ),

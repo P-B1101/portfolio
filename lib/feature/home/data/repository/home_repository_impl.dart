@@ -27,22 +27,29 @@ class HomeRepositoryImpl implements HomeRepository {
     required this.languageDataSource,
   });
 
-  Future<Either<Failure, T>> _loadOrFail<T>(LoadOrFail<T> loadOrFail) async {
+  Future<Either<Failure, T>> _loadOrFail<T>(
+    LoadOrFail<T> loadOrFail,
+    String method,
+  ) async {
     // if (!(await networkInfo.isConnected))
     // return Left(NoInternetConnectionFailure());
     try {
       final result = await loadOrFail();
       return Right(result);
     } on ServerException catch (error) {
+      print(method);
       print(error.toString());
       return Left(ServerFailure(message: error.message));
     } on SocketException catch (error) {
+      print(method);
       print(error.toString());
       return const Left(ServerFailure());
     } on ClientException catch (error) {
+      print(method);
       print(error.toString());
       return const Left(ServerFailure());
     } on Exception catch (error) {
+      print(method);
       print(error.toString());
       return const Left(ServerFailure());
     }
@@ -50,35 +57,55 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, List<Education>>> getEducations() =>
-      _loadOrFail<List<Education>>(() => dataSource
-          .getEducations(languageDataSource.getLanguageOrDefault.language));
+      _loadOrFail<List<Education>>(
+        () => dataSource
+            .getEducations(languageDataSource.getLanguageOrDefault.language),
+        'getEducations',
+      );
 
   @override
-  Future<Either<Failure, Info>> getInfo() => _loadOrFail<Info>(() =>
-      dataSource.getInfo(languageDataSource.getLanguageOrDefault.language));
+  Future<Either<Failure, Info>> getInfo() => _loadOrFail<Info>(
+        () => dataSource
+            .getInfo(languageDataSource.getLanguageOrDefault.language),
+        'getInfo',
+      );
 
   @override
   Future<Either<Failure, List<JobExperience>>> getJobExperiences() =>
-      _loadOrFail<List<JobExperience>>(() => dataSource
-          .getJobExperiences(languageDataSource.getLanguageOrDefault.language));
+      _loadOrFail<List<JobExperience>>(
+        () => dataSource.getJobExperiences(
+            languageDataSource.getLanguageOrDefault.language),
+        'getJobExperiences',
+      );
 
   @override
   Future<Either<Failure, Profession>> getProfession() =>
-      _loadOrFail<Profession>(() => dataSource
-          .getProfession(languageDataSource.getLanguageOrDefault.language));
+      _loadOrFail<Profession>(
+        () => dataSource
+            .getProfession(languageDataSource.getLanguageOrDefault.language),
+        'getProfession',
+      );
 
   @override
   Future<Either<Failure, List<Project>>> getProjects() =>
-      _loadOrFail<List<Project>>(() => dataSource
-          .getProjects(languageDataSource.getLanguageOrDefault.language));
+      _loadOrFail<List<Project>>(
+        () => dataSource
+            .getProjects(languageDataSource.getLanguageOrDefault.language),
+        'getProjects',
+      );
 
   @override
-  Future<Either<Failure, List<Skill>>> getSkills() =>
-      _loadOrFail<List<Skill>>(() => dataSource
-          .getSkills(languageDataSource.getLanguageOrDefault.language));
+  Future<Either<Failure, List<Skill>>> getSkills() => _loadOrFail<List<Skill>>(
+        () => dataSource
+            .getSkills(languageDataSource.getLanguageOrDefault.language),
+        'getSkills',
+      );
 
   @override
   Future<Either<Failure, List<Software>>> getSoftwares() =>
-      _loadOrFail<List<Software>>(() => dataSource
-          .getSoftwares(languageDataSource.getLanguageOrDefault.language));
+      _loadOrFail<List<Software>>(
+        () => dataSource
+            .getSoftwares(languageDataSource.getLanguageOrDefault.language),
+        'getSoftwares',
+      );
 }

@@ -12,6 +12,8 @@ Future<T> callApi<T>({
 }) async {
   final result = await request();
   // final fileResponse = isFile ? result : null;
+  print(result.body);
+  print(result.statusCode);
   final response = result.body.isEmpty ? null : json.decode(result.body);
   // if (result.statusCode == 401) throw UnAuhtorizeException();
   if (result.statusCode >= 200 && result.statusCode < 300) {
