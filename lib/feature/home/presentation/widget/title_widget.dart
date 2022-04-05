@@ -6,10 +6,12 @@ import '../../../provider/presentation/widgets/app_provider.dart';
 class TitleWidget extends StatelessWidget {
   final String? title;
   final double textSize;
+  final FontWeight? fontWeight;
   const TitleWidget({
     Key? key,
     required this.textSize,
     required this.title,
+    this.fontWeight,
   }) : super(key: key);
 
   @override
@@ -33,7 +35,7 @@ class TitleWidget extends StatelessWidget {
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: textSize,
-                    fontWeight: Fonts.medium500,
+                    fontWeight: fontWeight ?? Fonts.medium500,
                     color: Theme.of(context).textTheme.bodyText1?.color,
                   ),
                 ),

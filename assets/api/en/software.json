@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Android Studio",
+        "image": "assets/images/svg/android.svg",
+        "color": "DEEED5"
+    },
+    {
+        "title": "VS Code",
+        "image": "assets/images/svg/vs.svg",
+        "color": "B5D2EC"
+    },
+    {
+        "title": "Git",
+        "image": "assets/images/svg/git.svg",
+        "color": "ECCDC4"
+    }
+]

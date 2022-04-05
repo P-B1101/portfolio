@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Habitomic",
+        "subtitle": "Personal Daily Planner",
+        "date": "2021-08-22",
+        "androidLink": "https://play.google.com/store/apps/details?id=com.habitomic.android"
+    },
+    {
+        "title": "McMan",
+        "subtitle": "Comprehensive Health & Fitness Project",
+        "date": "2020-11-22",
+        "androidLink": "https://play.google.com/store/apps/details?id=com.mcman.android"
+    },
+    {
+        "title": "iClassifier",
+        "subtitle": "A Web Application for classifying Cows",
+        "date": "2022-01-01",
+        "webLink": "https://personalprojects-d0647.web.app/"
+    },
+    {
+        "title": "Hamamooz",
+        "subtitle": "Self Learning Educational & Financial App",
+        "date": "2018-08-22",
+        "androidLink": "https://play.google.com/store/apps/details?id=com.aryana",
+        "iosLink": "https://anardoni.com/ios/app/xeJrXlAlW"
+    },
+    {
+        "title": "Irancell's Dana Platform",
+        "subtitle": "Self Learning App on Various Categories",
+        "date": "2019-08-22",
+        "androidLink": "https://www.charkhoneh.com/content/930477744",
+        "iosLink": "https://anardoni.com/ios/app/ED5pi3c4c"
+    }
+]

@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart';
@@ -65,8 +66,12 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, Info>> getInfo() => _loadOrFail<Info>(
-        () => dataSource
-            .getInfo(languageDataSource.getLanguageOrDefault.language),
+        () async {
+          final result = await dataSource
+              .getInfo(languageDataSource.getLanguageOrDefault.language);
+          final imageUrl = await dataSource.getImageUrl();
+          return result.copyWith(imageUrl: imageUrl);
+        },
         'getInfo',
       );
 
@@ -107,5 +112,11 @@ class HomeRepositoryImpl implements HomeRepository {
         () => dataSource
             .getSoftwares(languageDataSource.getLanguageOrDefault.language),
         'getSoftwares',
+      );
+
+  @override
+  Future<Either<Failure, void>> requestForExport(Uint8List image) => _loadOrFail(
+        () => dataSource.requestForExport(image),
+        'requestForExport',
       );
 }

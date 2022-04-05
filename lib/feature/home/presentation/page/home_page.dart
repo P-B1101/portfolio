@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:screenshot/screenshot.dart';
 
+import '../../../../core/utils/enum.dart';
 import '../../../../injection_container.dart';
 import '../../../language/utils/local_language.dart';
 import '../../../toast/presentation/manager/toast_manager.dart';
 import '../bloc/education_bloc.dart';
+import '../bloc/export_bloc.dart';
 import '../bloc/info_bloc.dart';
 import '../bloc/job_experience_bloc.dart';
 import '../bloc/profession_bloc.dart';
@@ -25,6 +27,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final screenshotController = ScreenshotController();
+
   @override
   void initState() {
     super.initState();
@@ -113,22 +117,39 @@ class _HomePageState extends State<HomePage> {
             }
           },
         ),
+        BlocListener<ExportBloc, ExportState>(
+          listener: (context, state) {
+            if (state is SoftwareFailureState) {
+              _showError(number: 1008);
+            }
+          },
+        ),
       ],
       child: Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
-        body: const HomePageMain(),
+        body: HomePageMain(
+          onExportClick: _onExportClick,
+          screenshotController: screenshotController,
+        ),
       ),
     );
   }
 
+  void _onExportClick() async {
+    context
+        .read<ExportBloc>()
+        .add(RequestExportEvent(controller: screenshotController));
+  }
+
   void _showError({
-    required String? message,
+    String? message,
     required int? number,
   }) {
     sl<ToastManager>().showToast(
       context: context,
       message: message ?? Strings.of(context).general_error,
       number: number,
+      state: ToastState.error,
     );
   }
 }

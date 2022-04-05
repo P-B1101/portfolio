@@ -14,5 +14,10 @@
     "from_label": "From",
     "until_label": "Until",
     "now_label": "Now",
-    "virgul":","
+    "virgul": ",",
+    "android_link_label": "Android",
+    "ios_link_label": "iOS",
+    "web_link_label": "Web",
+    "linked_in_link_label": "LinkedIn",
+    "portfolio_link_label": "Portfolio"
 }

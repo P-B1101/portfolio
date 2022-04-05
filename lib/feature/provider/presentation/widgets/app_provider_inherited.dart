@@ -13,7 +13,5 @@ class AppProviderInherited extends InheritedWidget {
         );
 
   @override
-  bool updateShouldNotify(covariant AppProviderInherited oldWidget) {
-    return true;
-  }
+  bool updateShouldNotify(covariant AppProviderInherited oldWidget) => true;
 }

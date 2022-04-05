@@ -32,10 +32,10 @@ class InfoToastWidget extends StatelessWidget {
             child: Text(
               message,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
                 fontWeight: Fonts.regular400,
-                color: MyColors.textColor,
+                color: Theme.of(context).scaffoldBackgroundColor,
               ),
             ),
           ),

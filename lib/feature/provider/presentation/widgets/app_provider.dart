@@ -32,7 +32,8 @@ class AppProviderState extends State<AppProvider> {
   bool get isExtraSmall => MediaQuery.of(context).size.width < 300;
 
   bool get isSmall => MediaQuery.of(context).size.width < 350;
-  bool get isTablet => MediaQuery.of(context).size.width > 600;
+  bool get isTablet => false;
+  // MediaQuery.of(context).size.width > 600;
   bool get isWindow => MediaQuery.of(context).size.width > 1024;
   bool get isDark => Theme.of(context).brightness == Brightness.dark;
 

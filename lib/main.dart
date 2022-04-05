@@ -7,6 +7,7 @@ import 'package:url_strategy/url_strategy.dart';
 
 import 'core/utils/assets.dart';
 import 'feature/home/presentation/bloc/education_bloc.dart';
+import 'feature/home/presentation/bloc/export_bloc.dart';
 import 'feature/home/presentation/bloc/info_bloc.dart';
 import 'feature/home/presentation/bloc/job_experience_bloc.dart';
 import 'feature/home/presentation/bloc/profession_bloc.dart';
@@ -57,6 +58,9 @@ void main() async {
         ),
         BlocProvider<SoftwareBloc>(
           create: (context) => sl<SoftwareBloc>(),
+        ),
+        BlocProvider<ExportBloc>(
+          create: (context) => sl<ExportBloc>(),
         ),
       ],
       child: const MyApp(),

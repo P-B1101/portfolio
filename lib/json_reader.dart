@@ -7,7 +7,7 @@ Future<http.Response> readApi<T>(
 }) async {
   final subFolder = header != null && header['Language'] == 'fa' ? 'fa' : 'en';
   return rootBundle.loadStructuredData<http.Response>(
-    'api/$subFolder/$url.json',
+    'assets/api/$subFolder/$url.json',
     (response) async => http.Response(response, 200),
   );
 }

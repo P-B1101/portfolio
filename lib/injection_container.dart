@@ -1,25 +1,28 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
-import 'package:portfolio/feature/home/domain/use_case/get_info.dart';
-import 'package:portfolio/feature/home/domain/use_case/get_job_experiences.dart';
-import 'package:portfolio/feature/home/domain/use_case/get_profession.dart';
-import 'package:portfolio/feature/home/domain/use_case/get_projects.dart';
-import 'package:portfolio/feature/home/domain/use_case/get_skils.dart';
-import 'package:portfolio/feature/home/domain/use_case/get_softwares.dart';
-import 'package:portfolio/feature/home/presentation/bloc/info_bloc.dart';
-import 'package:portfolio/feature/home/presentation/bloc/job_experience_bloc.dart';
-import 'package:portfolio/feature/home/presentation/bloc/profession_bloc.dart';
-import 'package:portfolio/feature/home/presentation/bloc/project_bloc.dart';
-import 'package:portfolio/feature/home/presentation/bloc/skill_bloc.dart';
-import 'package:portfolio/feature/home/presentation/bloc/software_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'feature/home/data/data_source/home_data_source.dart';
 import 'feature/home/data/repository/home_repository_impl.dart';
 import 'feature/home/domain/repository/home_repository.dart';
 import 'feature/home/domain/use_case/get_educations.dart';
+import 'feature/home/domain/use_case/get_info.dart';
+import 'feature/home/domain/use_case/get_job_experiences.dart';
+import 'feature/home/domain/use_case/get_profession.dart';
+import 'feature/home/domain/use_case/get_projects.dart';
+import 'feature/home/domain/use_case/get_skils.dart';
+import 'feature/home/domain/use_case/get_softwares.dart';
+import 'feature/home/domain/use_case/request_for_export.dart';
 import 'feature/home/presentation/bloc/education_bloc.dart';
+import 'feature/home/presentation/bloc/export_bloc.dart';
+import 'feature/home/presentation/bloc/info_bloc.dart';
+import 'feature/home/presentation/bloc/job_experience_bloc.dart';
+import 'feature/home/presentation/bloc/profession_bloc.dart';
+import 'feature/home/presentation/bloc/project_bloc.dart';
+import 'feature/home/presentation/bloc/skill_bloc.dart';
+import 'feature/home/presentation/bloc/software_bloc.dart';
 import 'feature/language/data/data_sources/language_data_source.dart';
 import 'feature/language/data/repository/language_repository_impl.dart';
 import 'feature/language/domain/repository/language_repository.dart';
@@ -46,9 +49,15 @@ Future<void> init() async {
   //! Core
 
   //! External
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
   sl.registerLazySingleton(() => http.Client());
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
+  // sl.registerLazySingleton<firebase_storage.FirebaseStorage>(
+      // () => firebase_storage.FirebaseStorage.instance);
+  sl.registerLazySingleton<FilePicker>(() => FilePicker.platform);
 }
 
 //! Language
@@ -111,6 +120,7 @@ void _initHomeFeature() {
   sl.registerFactory(() => ProjectBloc(getProjects: sl()));
   sl.registerFactory(() => SkillBloc(getSkills: sl()));
   sl.registerFactory(() => SoftwareBloc(getSoftwares: sl()));
+  sl.registerFactory(() => ExportBloc(requestForExport: sl()));
   //  Cubit
   //  Use Cases
   sl.registerLazySingleton(() => GetEducations(repository: sl()));
@@ -120,6 +130,7 @@ void _initHomeFeature() {
   sl.registerLazySingleton(() => GetProjects(repository: sl()));
   sl.registerLazySingleton(() => GetSkills(repository: sl()));
   sl.registerLazySingleton(() => GetSoftwares(repository: sl()));
+  sl.registerLazySingleton(() => RequestForExport(repository: sl()));
   //  Repository
   sl.registerLazySingleton<HomeRepository>(() => HomeRepositoryImpl(
         dataSource: sl(),
@@ -127,6 +138,8 @@ void _initHomeFeature() {
       ));
   //  Data Soureces
   sl.registerLazySingleton<HomeDataSource>(() => HomeDataSourceImpl(
-        client: sl(),
+        // client: sl(),
+        // storage: sl(),
+        picker: sl(),
       ));
 }

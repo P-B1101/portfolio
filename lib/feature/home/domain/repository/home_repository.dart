@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/error/failures.dart';
@@ -23,4 +25,6 @@ abstract class HomeRepository {
   Future<Either<Failure, List<Skill>>> getSkills();
 
   Future<Either<Failure, List<Software>>> getSoftwares();
+
+  Future<Either<Failure, void>> requestForExport(Uint8List image);
 }

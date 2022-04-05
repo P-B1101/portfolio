@@ -14,5 +14,10 @@
     "from_label": "از",
     "until_label": "تا",
     "now_label": "الان",
-    "virgul": "،"
+    "virgul": "،",
+    "android_link_label": "اندروید",
+    "ios_link_label": "آی او اس",
+    "web_link_label": "وب",
+    "linked_in_link_label": "لینکدین",
+    "portfolio_link_label": "رزومه آنلاین"
 }

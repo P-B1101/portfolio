@@ -5,9 +5,9 @@ class ProjectModel extends Project {
     required String title,
     required String subtitle,
     required DateTime date,
-    required String? androidLink,
-    required String? iosLink,
-    required String? webAppLink,
+    required String androidLink,
+    required String iosLink,
+    required String webAppLink,
   }) : super(
           androidLink: androidLink,
           date: date,
@@ -21,8 +21,8 @@ class ProjectModel extends Project {
         title: json['title'],
         subtitle: json['subtitle'],
         date: DateTime.parse(json['date']),
-        androidLink: json['androidLink'],
-        iosLink: json['iosLink'],
-        webAppLink: json['webLink'],
+        androidLink: json['androidLink'] ?? '',
+        iosLink: json['iosLink'] ?? '',
+        webAppLink: json['webLink'] ?? '',
       );
 }

@@ -1,8 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/feature/provider/presentation/widgets/app_provider.dart';
 
+import '../../../provider/presentation/widgets/app_provider.dart';
 import '../bloc/info_bloc.dart';
 
 class UserImageWidget extends StatelessWidget {
@@ -26,14 +25,12 @@ class UserImageWidget extends StatelessWidget {
             child: state.info?.image != null
                 ? ClipOval(
                     child: SizedBox.expand(
-                      child: CachedNetworkImage(
-                        imageUrl: state.info?.image ?? '',
+                      child: Image.asset(
+                        state.info?.image ?? '',
                         width: double.infinity,
                         height: double.infinity,
                         alignment: Alignment.topCenter,
                         fit: BoxFit.cover,
-                        errorWidget: (context, error, stackTrace) =>
-                            const SizedBox(),
                       ),
                     ),
                   )
