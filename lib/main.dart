@@ -117,7 +117,10 @@ class _MyAppState extends State<MyApp> {
           primaryColor: MyColors.primaryColor,
           scaffoldBackgroundColor: MyColors.backgroundColor,
           backgroundColor: MyColors.secondBackgroundColor,
-          brightness: Brightness.dark,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: MyColors.primaryColor,
+            brightness: Brightness.dark,
+          ),
           fontFamily: language.isFa ? Fonts.yekan : Fonts.poppins,
           textTheme: const TextTheme(
             bodyText1: TextStyle(color: MyColors.textColor),

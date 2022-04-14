@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:screenshot/screenshot.dart';
 
-import '../../../../grid/presentation/widget/grid_widget.dart';
 import '../../../../language/utils/local_language.dart';
 import '../../bloc/education_bloc.dart';
 import '../../bloc/info_bloc.dart';
@@ -12,7 +10,6 @@ import '../../bloc/skill_bloc.dart';
 import '../../bloc/software_bloc.dart';
 import '../../widget/contact_me_widget.dart';
 import '../../widget/education_widget.dart';
-import '../../widget/export_widget.dart';
 import '../../widget/info_widget.dart';
 import '../../widget/job_experience_widget.dart';
 import '../../widget/project_widget.dart';
