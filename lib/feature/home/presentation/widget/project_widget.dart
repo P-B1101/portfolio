@@ -142,8 +142,8 @@ class _LinkWidget extends StatelessWidget {
             uri: Uri.parse(link),
             target: LinkTarget.blank,
             builder: (context, link) => TextButton(
-              child: Text(title),
               onPressed: link,
+              child: Text(title),
             ),
           )
         : const SizedBox();

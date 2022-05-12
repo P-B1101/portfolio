@@ -24,8 +24,8 @@ class AppProviderState extends State<AppProvider> {
   @override
   Widget build(BuildContext context) {
     return AppProviderInherited(
-      child: widget.child,
       data: this,
+      child: widget.child,
     );
   }
 
