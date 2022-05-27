@@ -30,29 +30,5 @@
     {
         "title": "Android Development",
         "rate": 3
-    },
-    {
-        "title": "Rest API",
-        "rate": 3
-    },
-    {
-        "title": "Google Material Design",
-        "rate": 3
-    },
-    {
-        "title": "Google Maps",
-        "rate": 3
-    },
-    {
-        "title": "Push Notification",
-        "rate": 3
-    },
-    {
-        "title": "Notification",
-        "rate": 3
-    },
-    {
-        "title": "Animation",
-        "rate": 3
     }
 ]
