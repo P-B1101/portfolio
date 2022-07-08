@@ -30,7 +30,7 @@ class AppThemeModel extends AppTheme {
       );
 
   factory AppThemeModel.defaultTheme() => const AppThemeModel(
-        id: 0,
+        id: 1,
         theme: ThemeMode.dark,
       );
 }
