@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:portfolio/feature/language/utils/local_language.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'core/utils/assets.dart';
@@ -99,7 +100,7 @@ class _MyAppState extends State<MyApp> {
     required AppTheme theme,
   }) =>
       MaterialApp(
-        title: 'Portfolio',
+        onGenerateTitle: (context) => Strings.of(context).app_title,
         debugShowCheckedModeBanner: false,
         themeMode: theme.theme,
         // theme: ThemeData(
