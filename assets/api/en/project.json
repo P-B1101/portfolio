@@ -1,0 +1,28 @@
+[
+    {
+        "title": "Habitomic",
+        "subtitle": "Personal Daily Planner",
+        "date": "2021-08-22",
+        "androidLink": "https://play.google.com/store/apps/details?id=com.habitomic.android",
+        "iosLink": "https://apps.apple.com/ca/app/habitomic/id1609261995"
+    },
+    {
+        "title": "McMan",
+        "subtitle": "Comprehensive Health & Fitness Project",
+        "date": "2020-11-22",
+        "androidLink": "https://play.google.com/store/apps/details?id=com.mcman.android"
+    },
+    {
+        "title": "iClassifier",
+        "subtitle": "A Web Application for classifying Cows",
+        "date": "2022-01-01",
+        "webLink": "https://app.iclassifier.ca/"
+    },
+    {
+        "title": "Hamamooz",
+        "subtitle": "Self Learning Educational & Financial App",
+        "date": "2018-08-22",
+        "androidLink": "https://play.google.com/store/apps/details?id=com.aryana",
+        "iosLink": "https://anardoni.com/ios/app/xeJrXlAlW"
+    }
+]

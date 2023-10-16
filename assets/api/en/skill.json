@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Flutter",
+        "rate": 3
+    },
+    {
+        "title": "Dart",
+        "rate": 3
+    },
+    {
+        "title": "Bloc Design Pattern",
+        "rate": 3
+    },
+    {
+        "title": "Object-Oriented Programming (OOP)",
+        "rate": 3
+    },
+    {
+        "title": "Flutter Bloc",
+        "rate": 3
+    },
+    {
+        "title": "Flutter Web",
+        "rate": 3
+    },
+    {
+        "title": "Java",
+        "rate": 3
+    },
+    {
+        "title": "Android Development",
+        "rate": 3
+    },
+    {
+        "title": "Test Driven Development",
+        "rate": 2
+    }
+]

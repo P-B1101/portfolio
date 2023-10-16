@@ -1,0 +1,23 @@
+[
+    {
+        "company": "Paratech Co",
+        "title": "Android & Flutter Developer",
+        "fromDate": "2017-08-23",
+        "toDate": "2022-04-20",
+        "isContinue": false
+    },
+    {
+        "company": "City Development and innovation",
+        "title": "Flutter Developer",
+        "fromDate": "2022-04-21",
+        "toDate": "2023-08-11",
+        "isContinue": false
+    },
+    {
+        "company": "Negah Holding",
+        "title": "Flutter Developer",
+        "fromDate": "2023-07-23",
+        "toDate": "2023-07-23",
+        "isContinue": true
+    }
+]
