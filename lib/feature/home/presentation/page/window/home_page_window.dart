@@ -1,6 +1,8 @@
+import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/feature/home/presentation/widget/export_widget.dart';
+import 'package:portfolio/feature/provider/presentation/widgets/app_provider.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../grid/presentation/widget/grid_widget.dart';
@@ -104,12 +106,20 @@ class HomePageWindow extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: state.items.length,
-                          itemBuilder: (context, index) => EducationWidget(
-                            lineWidth: 120,
-                            education: state.items[index],
-                            textSize: 22,
-                            index: index + 1,
-                            isLast: index == state.items.length - 1,
+                          itemBuilder: (context, index) => FadedSlideAnimation(
+                            fadeCurve: AppProvider.of(context).curve,
+                            fadeDuration: AppProvider.of(context).duration,
+                            slideCurve: AppProvider.of(context).curve,
+                            slideDuration: AppProvider.of(context).duration,
+                            beginOffset: const Offset(0, -.5),
+                            endOffset: const Offset(0, 0),
+                            child: EducationWidget(
+                              lineWidth: 120,
+                              education: state.items[index],
+                              textSize: 22,
+                              index: index + 1,
+                              isLast: index == state.items.length - 1,
+                            ),
                           ),
                         ),
                       ),
@@ -138,12 +148,20 @@ class HomePageWindow extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: state.items.length,
-                          itemBuilder: (context, index) => JobExperienceWidget(
-                            lineWidth: 120,
-                            experience: state.items[index],
-                            textSize: 22,
-                            index: index + 1,
-                            isLast: index == state.items.length - 1,
+                          itemBuilder: (context, index) => FadedSlideAnimation(
+                            fadeCurve: AppProvider.of(context).curve,
+                            fadeDuration: AppProvider.of(context).duration,
+                            slideCurve: AppProvider.of(context).curve,
+                            slideDuration: AppProvider.of(context).duration,
+                            beginOffset: const Offset(0, -.5),
+                            endOffset: const Offset(0, 0),
+                            child: JobExperienceWidget(
+                              lineWidth: 120,
+                              experience: state.items[index],
+                              textSize: 22,
+                              index: index + 1,
+                              isLast: index == state.items.length - 1,
+                            ),
                           ),
                         ),
                       ),
@@ -172,12 +190,20 @@ class HomePageWindow extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: state.items.length,
-                          itemBuilder: (context, index) => ProjectWidget(
-                            lineWidth: 120,
-                            project: state.items[index],
-                            textSize: 22,
-                            index: index + 1,
-                            isLast: index == state.items.length - 1,
+                          itemBuilder: (context, index) => FadedSlideAnimation(
+                            fadeCurve: AppProvider.of(context).curve,
+                            fadeDuration: AppProvider.of(context).duration,
+                            slideCurve: AppProvider.of(context).curve,
+                            slideDuration: AppProvider.of(context).duration,
+                            beginOffset: const Offset(0, -.5),
+                            endOffset: const Offset(0, 0),
+                            child: ProjectWidget(
+                              lineWidth: 120,
+                              project: state.items[index],
+                              textSize: 22,
+                              index: index + 1,
+                              isLast: index == state.items.length - 1,
+                            ),
                           ),
                         ),
                       ),

@@ -28,7 +28,7 @@ class TitleWidget extends StatelessWidget {
           switchInCurve: Curves.easeIn,
           switchOutCurve: Curves.easeOut,
           child: title == null
-              ? const SizedBox()
+              ? const SizedBox(width: double.infinity)
               : Text(
                   title!,
                   key: ValueKey(title == null ? 0 : 1),
