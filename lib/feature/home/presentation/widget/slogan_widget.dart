@@ -23,14 +23,17 @@ class SloganWidget extends StatelessWidget {
           duration: AppProvider.of(context).duration,
           switchInCurve: Curves.easeIn,
           switchOutCurve: Curves.easeOut,
-          child: Text(
-            state.profession?.slogan ?? '',
+          child: SizedBox(
             key: ValueKey(state.profession == null ? 0 : 1),
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: textSize,
-              fontWeight: Fonts.light300,
-              color: Theme.of(context).textTheme.bodyLarge?.color,
+            width: double.infinity,
+            child: Text(
+              state.profession?.slogan ?? '',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                fontSize: textSize,
+                fontWeight: Fonts.light300,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
+              ),
             ),
           ),
         ),

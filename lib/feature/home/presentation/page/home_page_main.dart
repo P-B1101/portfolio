@@ -17,22 +17,18 @@ class HomePageMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSize(
+    return AnimatedSwitcher(
       duration: AppProvider.of(context).duration,
-      curve: AppProvider.of(context).curve,
-      child: AnimatedSwitcher(
-        duration: AppProvider.of(context).duration,
-        switchInCurve: Curves.easeIn,
-        switchOutCurve: Curves.easeOut,
-        child: AppProvider.of(context).isWindow
-            ? HomePageWindow(
-                onExportClick: onExportClick,
-                screenshotController: screenshotController,
-              )
-            : AppProvider.of(context).isTablet
-                ? const HomePageTablet()
-                : const HomePagePhone(),
-      ),
+      switchInCurve: Curves.easeIn,
+      switchOutCurve: Curves.easeOut,
+      child: AppProvider.of(context).isWindow
+          ? HomePageWindow(
+              onExportClick: onExportClick,
+              screenshotController: screenshotController,
+            )
+          : AppProvider.of(context).isTablet
+              ? const HomePageTablet()
+              : const HomePagePhone(),
     );
   }
 }

@@ -36,14 +36,17 @@ class InfoWidget extends StatelessWidget {
             duration: AppProvider.of(context).duration,
             switchInCurve: Curves.easeIn,
             switchOutCurve: Curves.easeOut,
-            child: Text(
-              state.info?.getFullName ?? '',
+            child: SizedBox(
               key: ValueKey(state.info == null ? 0 : 1),
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: mainTextSize,
-                fontWeight: Fonts.medium500,
-                color: Theme.of(context).primaryColor,
+              width: double.infinity,
+              child: Text(
+                state.info?.getFullName ?? '',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: mainTextSize,
+                  fontWeight: Fonts.medium500,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
             ),
           ),
@@ -59,14 +62,17 @@ class InfoWidget extends StatelessWidget {
             duration: AppProvider.of(context).duration,
             switchInCurve: Curves.easeIn,
             switchOutCurve: Curves.easeOut,
-            child: Text(
-              state.profession?.profession ?? '',
+            child: SizedBox(
               key: ValueKey(state.profession == null ? 0 : 1),
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: mainTextSize - 2,
-                fontWeight: Fonts.regular400,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
+              width: double.infinity,
+              child: Text(
+                state.profession?.profession ?? '',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: mainTextSize - 2,
+                  fontWeight: Fonts.regular400,
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                ),
               ),
             ),
           ),
