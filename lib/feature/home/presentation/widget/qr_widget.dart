@@ -26,7 +26,7 @@ class QRWidget extends StatelessWidget {
             painter: QrPainter(
               data: url,
               version: QrVersions.auto,
-              color: Theme.of(context).textTheme.bodyText1?.color,
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
         ),
@@ -36,7 +36,7 @@ class QRWidget extends StatelessWidget {
           style: TextStyle(
             fontSize: 16,
             fontWeight: Fonts.light300,
-            color: Theme.of(context).textTheme.bodyText1?.color,
+            color: Theme.of(context).textTheme.bodyLarge?.color,
           ),
         ),
       ],

@@ -36,7 +36,7 @@ class SkillWidget extends StatelessWidget {
                 text: '$index. ${skill.title} ',
                 style: TextStyle(
                   fontSize: textSize,
-                  color: Theme.of(context).textTheme.bodyText1?.color,
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
                 ),
               ),
               TextSpan(

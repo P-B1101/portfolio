@@ -32,7 +32,7 @@ class ExportWidget extends StatelessWidget {
                             child: Icon(
                               Icons.print_rounded,
                               color:
-                                  Theme.of(context).textTheme.bodyText1?.color,
+                                  Theme.of(context).textTheme.bodyLarge?.color,
                             ),
                           ),
                         );

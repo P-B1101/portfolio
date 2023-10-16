@@ -1,5 +1,7 @@
+import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/feature/provider/presentation/widgets/app_provider.dart';
 
 import '../../../../language/utils/local_language.dart';
 import '../../bloc/education_bloc.dart';
@@ -44,16 +46,16 @@ class HomePagePhone extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       UserImageWidget(
-                        size: MediaQuery.of(context).size.width * .6,
+                        size: MediaQuery.sizeOf(context).width * .6,
                       ),
                       const SizedBox(height: 24),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 24),
+                      const Padding(
+                        padding: EdgeInsetsDirectional.only(start: 24),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           mainAxisSize: MainAxisSize.max,
-                          children: const [
+                          children: [
                             InfoWidget(mainTextSize: 24),
                             SizedBox(height: 8),
                             SloganWidget(textSize: 14),
@@ -86,12 +88,20 @@ class HomePagePhone extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: state.items.length,
-                        itemBuilder: (context, index) => EducationWidget(
-                          lineWidth: 80,
-                          education: state.items[index],
-                          textSize: 16,
-                          index: index + 1,
-                          isLast: index == state.items.length - 1,
+                        itemBuilder: (context, index) => FadedSlideAnimation(
+                          fadeCurve: AppProvider.of(context).curve,
+                          fadeDuration: AppProvider.of(context).duration,
+                          slideCurve: AppProvider.of(context).curve,
+                          slideDuration: AppProvider.of(context).duration,
+                          beginOffset: const Offset(0, -.5),
+                          endOffset: const Offset(0, 0),
+                          child: EducationWidget(
+                            lineWidth: 80,
+                            education: state.items[index],
+                            textSize: 16,
+                            index: index + 1,
+                            isLast: index == state.items.length - 1,
+                          ),
                         ),
                       ),
                     ),
@@ -120,12 +130,20 @@ class HomePagePhone extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: state.items.length,
-                        itemBuilder: (context, index) => JobExperienceWidget(
-                          lineWidth: 80,
-                          experience: state.items[index],
-                          textSize: 16,
-                          index: index + 1,
-                          isLast: index == state.items.length - 1,
+                        itemBuilder: (context, index) => FadedSlideAnimation(
+                          fadeCurve: AppProvider.of(context).curve,
+                          fadeDuration: AppProvider.of(context).duration,
+                          slideCurve: AppProvider.of(context).curve,
+                          slideDuration: AppProvider.of(context).duration,
+                          beginOffset: const Offset(0, -.5),
+                          endOffset: const Offset(0, 0),
+                          child: JobExperienceWidget(
+                            lineWidth: 80,
+                            experience: state.items[index],
+                            textSize: 16,
+                            index: index + 1,
+                            isLast: index == state.items.length - 1,
+                          ),
                         ),
                       ),
                     ),
@@ -154,13 +172,21 @@ class HomePagePhone extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: state.items.length,
-                        itemBuilder: (context, index) => ProjectWidget(
-                          isSmallScreen: true,
-                          lineWidth: 80,
-                          project: state.items[index],
-                          textSize: 18,
-                          index: index + 1,
-                          isLast: index == state.items.length - 1,
+                        itemBuilder: (context, index) => FadedSlideAnimation(
+                          fadeCurve: AppProvider.of(context).curve,
+                          fadeDuration: AppProvider.of(context).duration,
+                          slideCurve: AppProvider.of(context).curve,
+                          slideDuration: AppProvider.of(context).duration,
+                          beginOffset: const Offset(0, -.5),
+                          endOffset: const Offset(0, 0),
+                          child: ProjectWidget(
+                            isSmallScreen: true,
+                            lineWidth: 80,
+                            project: state.items[index],
+                            textSize: 18,
+                            index: index + 1,
+                            isLast: index == state.items.length - 1,
+                          ),
                         ),
                       ),
                     ),
@@ -189,12 +215,20 @@ class HomePagePhone extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: state.items.length,
-                        itemBuilder: (context, index) => Align(
-                          alignment: AlignmentDirectional.centerStart,
-                          child: SkillWidget(
-                            skill: state.items[index],
-                            textSize: 18,
-                            index: index + 1,
+                        itemBuilder: (context, index) => FadedSlideAnimation(
+                          fadeCurve: AppProvider.of(context).curve,
+                          fadeDuration: AppProvider.of(context).duration,
+                          slideCurve: AppProvider.of(context).curve,
+                          slideDuration: AppProvider.of(context).duration,
+                          beginOffset: const Offset(0, -.5),
+                          endOffset: const Offset(0, 0),
+                          child: Align(
+                            alignment: AlignmentDirectional.centerStart,
+                            child: SkillWidget(
+                              skill: state.items[index],
+                              textSize: 18,
+                              index: index + 1,
+                            ),
                           ),
                         ),
                       ),

@@ -64,7 +64,7 @@ class ProjectWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: textSize,
                       fontWeight: Fonts.light300,
-                      color: Theme.of(context).textTheme.bodyText1?.color,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
                     ),
                   ),
                   Row(
@@ -88,7 +88,7 @@ class ProjectWidget extends StatelessWidget {
                       style: TextStyle(
                         fontSize: textSize,
                         fontWeight: Fonts.light300,
-                        color: Theme.of(context).textTheme.bodyText1?.color,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                   ),

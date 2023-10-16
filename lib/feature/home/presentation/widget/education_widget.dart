@@ -41,7 +41,7 @@ class EducationWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: textSize,
                 fontWeight: Fonts.light300,
-                color: Theme.of(context).textTheme.bodyText1?.color,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
               ),
             ),
             const SizedBox(height: 4),
@@ -52,7 +52,7 @@ class EducationWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: textSize - 2,
                 fontWeight: Fonts.light300,
-                color: Theme.of(context).textTheme.subtitle1?.color,
+                color: Theme.of(context).textTheme.titleMedium?.color,
               ),
             ),
             Container(

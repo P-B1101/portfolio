@@ -111,7 +111,7 @@ class _ItemWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 13,
               fontWeight: Fonts.light300,
-              color: Theme.of(context).textTheme.bodyText1?.color,
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
         ),

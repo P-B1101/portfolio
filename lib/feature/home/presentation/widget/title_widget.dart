@@ -36,7 +36,7 @@ class TitleWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: textSize,
                     fontWeight: fontWeight ?? Fonts.medium500,
-                    color: Theme.of(context).textTheme.bodyText1?.color,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                   ),
                 ),
         ),

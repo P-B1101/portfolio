@@ -66,7 +66,7 @@ class InfoWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: mainTextSize - 2,
                 fontWeight: Fonts.regular400,
-                color: Theme.of(context).textTheme.bodyText1?.color,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
               ),
             ),
           ),

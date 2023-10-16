@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ],
       child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: HomePageMain(
           onExportClick: _onExportClick,
           screenshotController: screenshotController,

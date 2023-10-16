@@ -21,7 +21,7 @@ class InfoToastWidget extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 48),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(32),
-        color: Theme.of(context).textTheme.bodyText1?.color,
+        color: Theme.of(context).textTheme.bodyLarge?.color,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

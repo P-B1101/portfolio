@@ -24,5 +24,15 @@
         "date": "2018-08-22",
         "androidLink": "https://play.google.com/store/apps/details?id=com.aryana",
         "iosLink": "https://anardoni.com/ios/app/xeJrXlAlW"
+<<<<<<< HEAD
+=======
+    },
+    {
+        "title": "Irancell's Dana Platform",
+        "subtitle": "Self Learning App on Various Categories",
+        "date": "2019-08-22",
+        "androidLink": "https://www.charkhoneh.com/content/930477744",
+        "iosLink": "https://anardoni.com/ios/app/ED5pi3c4c"
+>>>>>>> e5b129cfae987ce4a3dcd14af11b46efacf2c8a4
     }
 ]

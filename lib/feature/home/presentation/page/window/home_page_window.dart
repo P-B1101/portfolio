@@ -65,12 +65,12 @@ class HomePageWindow extends StatelessWidget {
                       children: [
                         const UserImageWidget(size: 250),
                         const SizedBox(width: 24),
-                        Expanded(
+                        const Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             mainAxisSize: MainAxisSize.max,
-                            children: const [
+                            children: [
                               InfoWidget(mainTextSize: 26),
                               SizedBox(height: 32),
                               SloganWidget(textSize: 18),

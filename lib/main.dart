@@ -117,16 +117,15 @@ class _MyAppState extends State<MyApp> {
         darkTheme: ThemeData(
           primaryColor: MyColors.primaryColor,
           scaffoldBackgroundColor: MyColors.backgroundColor,
-          backgroundColor: MyColors.secondBackgroundColor,
+          fontFamily: language.isFa ? Fonts.yekan : Fonts.poppins,
+          textTheme: const TextTheme(
+            bodyLarge: TextStyle(color: MyColors.textColor),
+            titleMedium: TextStyle(color: MyColors.subtitleColor),
+          ),
           colorScheme: ColorScheme.fromSeed(
             seedColor: MyColors.primaryColor,
             brightness: Brightness.dark,
-          ),
-          fontFamily: language.isFa ? Fonts.yekan : Fonts.poppins,
-          textTheme: const TextTheme(
-            bodyText1: TextStyle(color: MyColors.textColor),
-            subtitle1: TextStyle(color: MyColors.subtitleColor),
-          ),
+          ).copyWith(background: MyColors.secondBackgroundColor),
         ),
         locale: Locale(language.language),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
