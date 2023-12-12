@@ -53,6 +53,7 @@ dependencies:
   screenshot: ^2.1.0
   http: ^1.1.0
   intl: ^0.18.1
+  file_saver: ^0.2.9
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,8 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:file_saver/file_saver.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../../../core/utils/top_level_functions.dart';
 import '../../../../json_reader.dart';
@@ -68,10 +70,12 @@ class HomeDataSourceImpl implements HomeDataSource {
   // final http.Client client;
   // final firebase_storage.FirebaseStorage storage;
   final FilePicker picker;
+  final FileSaver fileSaver;
   const HomeDataSourceImpl({
     // required this.client,
     // required this.storage,
     required this.picker,
+    required this.fileSaver,
   });
 
   @override
@@ -195,6 +199,13 @@ class HomeDataSourceImpl implements HomeDataSource {
   @override
   Future<void> requestForExport(Uint8List image) async {
     final extensions = ['png'];
+    if (kIsWeb) {
+      await fileSaver.saveFile(
+        name: 'cv.png',
+        bytes: image,
+      );
+      return;
+    }
     final saveDir = await picker.saveFile(
       allowedExtensions: extensions,
       type: FileType.custom,

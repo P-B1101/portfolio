@@ -1,4 +1,5 @@
 import 'package:file_picker/file_picker.dart';
+import 'package:file_saver/file_saver.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
@@ -56,8 +57,9 @@ Future<void> init() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
   // sl.registerLazySingleton<firebase_storage.FirebaseStorage>(
-      // () => firebase_storage.FirebaseStorage.instance);
+  // () => firebase_storage.FirebaseStorage.instance);
   sl.registerLazySingleton<FilePicker>(() => FilePicker.platform);
+  sl.registerLazySingleton<FileSaver>(() => FileSaver.instance);
 }
 
 //! Language
@@ -141,5 +143,6 @@ void _initHomeFeature() {
         // client: sl(),
         // storage: sl(),
         picker: sl(),
+        fileSaver: sl(),
       ));
 }
