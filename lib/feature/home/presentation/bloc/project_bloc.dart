@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 import 'package:portfolio/core/error/failures.dart';
 import 'package:portfolio/core/use_case/use_case.dart';
 import 'package:portfolio/feature/home/domain/entity/project.dart';
@@ -8,6 +9,7 @@ import 'package:portfolio/feature/home/domain/use_case/get_projects.dart';
 part 'project_event.dart';
 part 'project_state.dart';
 
+@injectable
 class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
   final GetProjects _getProjects;
   ProjectBloc({

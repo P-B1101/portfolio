@@ -1,3 +1,5 @@
+import 'package:injectable/injectable.dart';
+
 import '../../data/models/app_language_model.dart';
 import '../entities/app_language.dart';
 import '../repository/language_repository.dart';
@@ -6,6 +8,8 @@ import '../repository/language_repository.dart';
 ///
 /// Return [AppLanguageModel.defaultLanguage] if nothing saved.
 ///
+
+@lazySingleton
 class GetAppLanguage {
   final LanguageRepository repository;
 

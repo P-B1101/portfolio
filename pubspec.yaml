@@ -54,11 +54,15 @@ dependencies:
   http: ^1.1.0
   intl: ^0.18.1
   file_saver: ^0.2.9
+  injectable: ^2.3.2
+  curl_generator: ^0.0.13
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.3
+  injectable_generator:
+  build_runner:  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

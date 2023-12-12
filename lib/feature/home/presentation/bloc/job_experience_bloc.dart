@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/use_case/use_case.dart';
@@ -9,6 +10,7 @@ import '../../domain/use_case/get_job_experiences.dart';
 part 'job_experience_event.dart';
 part 'job_experience_state.dart';
 
+@injectable
 class JobExperienceBloc extends Bloc<JobExperienceEvent, JobExperienceState> {
   final GetJobExperiences _getJobExperiences;
   JobExperienceBloc({

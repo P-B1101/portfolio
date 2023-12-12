@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../data/models/app_language_model.dart';
 import '../../domain/entities/app_language.dart';
@@ -8,6 +9,7 @@ import '../../domain/use_cases/set_app_language.dart';
 
 part 'language_state.dart';
 
+@injectable
 class LanguageCubit extends Cubit<LanguageState> {
   final GetAppLanguage getAppLanguage;
   final SetAppLanguage setAppLanguage;

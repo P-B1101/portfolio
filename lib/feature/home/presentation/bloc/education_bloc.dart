@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/use_case/use_case.dart';
@@ -9,6 +10,7 @@ import '../../domain/use_case/get_educations.dart';
 part 'education_event.dart';
 part 'education_state.dart';
 
+@injectable
 class EducationBloc extends Bloc<EducationEvent, EducationState> {
   final GetEducations _getEducations;
   EducationBloc({

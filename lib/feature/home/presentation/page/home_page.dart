@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
     String? message,
     required int? number,
   }) {
-    sl<ToastManager>().showToast(
+    getIt<ToastManager>().showToast(
       context: context,
       message: message ?? Strings.of(context).general_error,
       number: number,

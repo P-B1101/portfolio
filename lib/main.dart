@@ -28,39 +28,39 @@ import 'injection_container.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
-  await init();
+  await configureDependencies();
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider<LanguageCubit>(
-          create: (context) => sl<LanguageCubit>(),
+          create: (context) => getIt<LanguageCubit>(),
         ),
         BlocProvider<ThemeCubit>(
-          create: (context) => sl<ThemeCubit>(),
+          create: (context) => getIt<ThemeCubit>(),
         ),
         BlocProvider<EducationBloc>(
-          create: (context) => sl<EducationBloc>(),
+          create: (context) => getIt<EducationBloc>(),
         ),
         BlocProvider<InfoBloc>(
-          create: (context) => sl<InfoBloc>(),
+          create: (context) => getIt<InfoBloc>(),
         ),
         BlocProvider<JobExperienceBloc>(
-          create: (context) => sl<JobExperienceBloc>(),
+          create: (context) => getIt<JobExperienceBloc>(),
         ),
         BlocProvider<ProfessionBloc>(
-          create: (context) => sl<ProfessionBloc>(),
+          create: (context) => getIt<ProfessionBloc>(),
         ),
         BlocProvider<ProjectBloc>(
-          create: (context) => sl<ProjectBloc>(),
+          create: (context) => getIt<ProjectBloc>(),
         ),
         BlocProvider<SkillBloc>(
-          create: (context) => sl<SkillBloc>(),
+          create: (context) => getIt<SkillBloc>(),
         ),
         BlocProvider<SoftwareBloc>(
-          create: (context) => sl<SoftwareBloc>(),
+          create: (context) => getIt<SoftwareBloc>(),
         ),
         BlocProvider<ExportBloc>(
-          create: (context) => sl<ExportBloc>(),
+          create: (context) => getIt<ExportBloc>(),
         ),
       ],
       child: const MyApp(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/utils/enum.dart';
 import '../widgets/error_toast_widget.dart';
@@ -15,6 +16,7 @@ abstract class ToastManager {
   });
 }
 
+@LazySingleton(as: ToastManager)
 class ToastManagerImpl implements ToastManager {
   final FToast fToast;
 

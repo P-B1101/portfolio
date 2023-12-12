@@ -1,3 +1,5 @@
+import 'package:injectable/injectable.dart';
+
 import '../entiries/app_theme.dart';
 import '../repository/theme_repository.dart';
 
@@ -5,6 +7,8 @@ import '../repository/theme_repository.dart';
 ///
 /// Return [AppThemeModel.defaultTheme] if nothing saved.
 ///
+
+@lazySingleton
 class GetAppTheme {
   final ThemeRepository repository;
 

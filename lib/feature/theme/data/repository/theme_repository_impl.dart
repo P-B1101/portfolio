@@ -1,9 +1,12 @@
+import 'package:injectable/injectable.dart';
+
 import '../../../../core/error/exceptions.dart';
 import '../../domain/entiries/app_theme.dart';
 import '../../domain/repository/theme_repository.dart';
 import '../data_sources/theme_data_source.dart';
 import '../models/app_theme_model.dart';
 
+@LazySingleton(as: ThemeRepository)
 class ThemeRepositoryImpl implements ThemeRepository {
   final ThemeDataSource dataSource;
 

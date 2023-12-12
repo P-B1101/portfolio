@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/use_case/use_case.dart';
@@ -9,6 +10,7 @@ import '../../domain/use_case/get_info.dart';
 part 'info_event.dart';
 part 'info_state.dart';
 
+@injectable
 class InfoBloc extends Bloc<InfoEvent, InfoState> {
   final GetInfo _getInfo;
   InfoBloc({

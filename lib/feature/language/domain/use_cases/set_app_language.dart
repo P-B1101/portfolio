@@ -1,3 +1,5 @@
+import 'package:injectable/injectable.dart';
+
 import '../entities/app_language.dart';
 import '../repository/language_repository.dart';
 
@@ -5,6 +7,8 @@ import '../repository/language_repository.dart';
 ///
 /// uning [LanguageRepository].
 ///
+
+@lazySingleton
 class SetAppLanguage {
   final LanguageRepository repository;
 

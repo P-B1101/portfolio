@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/error/exceptions.dart';
@@ -18,6 +19,7 @@ abstract class ThemeDataSource {
 
 const themeKey = 'ThemeKey';
 
+@LazySingleton(as: ThemeDataSource)
 class ThemeDataSourceImpl implements ThemeDataSource {
   final SharedPreferences localStorage;
 

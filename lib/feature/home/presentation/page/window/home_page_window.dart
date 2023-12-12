@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
 
-import '../../../../grid/presentation/widget/grid_widget.dart';
+import '../../../../../core/components/grid_widget.dart';
 import '../../../../language/utils/local_language.dart';
 import '../../../../provider/presentation/widgets/app_provider.dart';
 import '../../bloc/education_bloc.dart';

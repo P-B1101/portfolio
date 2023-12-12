@@ -3,9 +3,10 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:file_saver/file_saver.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
-import '../../../../core/utils/top_level_functions.dart';
 import '../../../../json_reader.dart';
+import '../../../api/manager/api_caller.dart';
 import '../../domain/entity/education.dart';
 import '../../domain/entity/info.dart';
 import '../../domain/entity/job_experience.dart';
@@ -65,23 +66,28 @@ abstract class HomeDataSource {
   Future<void> requestForExport(Uint8List image);
 }
 
+@LazySingleton(as: HomeDataSource)
 class HomeDataSourceImpl implements HomeDataSource {
   // final http.Client client;
   // final firebase_storage.FirebaseStorage storage;
   final FilePicker picker;
   final FileSaver fileSaver;
+  final ApiCaller apiCaller;
+  // final MyClient client;
   const HomeDataSourceImpl({
     // required this.client,
     // required this.storage,
     required this.picker,
     required this.fileSaver,
+    required this.apiCaller,
+    // required this.client,
   });
 
   @override
   Future<List<Education>> getEducations(String language) async {
     // final educations = storage.ref('api/$language/education.json');
     // final url = await educations.getDownloadURL();
-    return callApi<List<Education>>(
+    return apiCaller.callApi<List<Education>>(
       converter: (json) =>
           (json as List).map((e) => EducationModel.fromJson(e)).toList(),
       request: () => readApi(
@@ -97,7 +103,7 @@ class HomeDataSourceImpl implements HomeDataSource {
   Future<Info> getInfo(String language) async {
     // final educations = storage.ref('api/$language/info.json');
     // final url = await educations.getDownloadURL();
-    return callApi<Info>(
+    return apiCaller.callApi<Info>(
       converter: (json) => InfoModel.fromJson(json),
       request: () => readApi(
         'info',
@@ -112,7 +118,7 @@ class HomeDataSourceImpl implements HomeDataSource {
   Future<List<JobExperience>> getJobExperiences(String language) async {
     // final educations = storage.ref('api/$language/job_experience.json');
     // final url = await educations.getDownloadURL();
-    return callApi<List<JobExperience>>(
+    return apiCaller.callApi<List<JobExperience>>(
       converter: (json) =>
           (json as List).map((e) => JobExperienceModel.fromJson(e)).toList(),
       request: () => readApi(
@@ -128,7 +134,7 @@ class HomeDataSourceImpl implements HomeDataSource {
   Future<Profession> getProfession(String language) async {
     // final educations = storage.ref('api/$language/profession.json');
     // final url = await educations.getDownloadURL();
-    return callApi<Profession>(
+    return apiCaller.callApi<Profession>(
       converter: (json) => ProfessionModel.fromJson(json),
       request: () => readApi(
         'profession',
@@ -143,7 +149,7 @@ class HomeDataSourceImpl implements HomeDataSource {
   Future<List<Project>> getProjects(String language) async {
     // final educations = storage.ref('api/$language/project.json');
     // final url = await educations.getDownloadURL();
-    return callApi<List<Project>>(
+    return apiCaller.callApi<List<Project>>(
       converter: (json) =>
           (json as List).map((e) => ProjectModel.fromJson(e)).toList(),
       request: () => readApi(
@@ -159,7 +165,7 @@ class HomeDataSourceImpl implements HomeDataSource {
   Future<List<Skill>> getSkills(String language) async {
     // final educations = storage.ref('api/$language/skill.json');
     // final url = await educations.getDownloadURL();
-    return callApi<List<Skill>>(
+    return apiCaller.callApi<List<Skill>>(
       converter: (json) =>
           (json as List).map((e) => SkillModel.fromJson(e)).toList(),
       request: () => readApi(
@@ -175,7 +181,7 @@ class HomeDataSourceImpl implements HomeDataSource {
   Future<List<Software>> getSoftwares(String language) async {
     // final educations = storage.ref('api/$language/software.json');
     // final url = await educations.getDownloadURL();
-    return callApi<List<Software>>(
+    return apiCaller.callApi<List<Software>>(
       converter: (json) =>
           (json as List).map((e) => SoftwareModel.fromJson(e)).toList(),
       request: () => readApi(

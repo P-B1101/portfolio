@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/use_case/use_case.dart';
@@ -9,6 +10,7 @@ import '../../domain/use_case/get_skils.dart';
 part 'skill_event.dart';
 part 'skill_state.dart';
 
+@injectable
 class SkillBloc extends Bloc<SkillEvent, SkillState> {
   final GetSkills _getSkills;
   SkillBloc({

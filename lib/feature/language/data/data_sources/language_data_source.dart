@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/error/exceptions.dart';
@@ -20,6 +21,7 @@ abstract class LanguageDataSource {
 
 const languageKey = 'LanguageKey';
 
+@LazySingleton(as: LanguageDataSource)
 class LanguageDataSourceImpl implements LanguageDataSource {
   final SharedPreferences localStorage;
 

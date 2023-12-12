@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../core/error/failures.dart';
@@ -8,6 +9,7 @@ import '../../domain/use_case/request_for_export.dart';
 part 'export_event.dart';
 part 'export_state.dart';
 
+@injectable
 class ExportBloc extends Bloc<ExportEvent, ExportState> {
   final RequestForExport _requestForExport;
   ExportBloc({
