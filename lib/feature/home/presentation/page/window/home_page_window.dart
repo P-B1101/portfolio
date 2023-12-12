@@ -1,12 +1,11 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/feature/home/presentation/widget/export_widget.dart';
-import 'package:portfolio/feature/provider/presentation/widgets/app_provider.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../grid/presentation/widget/grid_widget.dart';
 import '../../../../language/utils/local_language.dart';
+import '../../../../provider/presentation/widgets/app_provider.dart';
 import '../../bloc/education_bloc.dart';
 import '../../bloc/info_bloc.dart';
 import '../../bloc/job_experience_bloc.dart';
@@ -15,6 +14,7 @@ import '../../bloc/skill_bloc.dart';
 import '../../bloc/software_bloc.dart';
 import '../../widget/contact_me_widget.dart';
 import '../../widget/education_widget.dart';
+import '../../widget/export_widget.dart';
 import '../../widget/info_widget.dart';
 import '../../widget/job_experience_widget.dart';
 import '../../widget/project_widget.dart';
@@ -23,7 +23,6 @@ import '../../widget/skill_widget.dart';
 import '../../widget/slogan_widget.dart';
 import '../../widget/software_widget.dart';
 import '../../widget/title_widget.dart';
-import '../../widget/user_image_widget.dart';
 
 class HomePageWindow extends StatelessWidget {
   final Function() onExportClick;
@@ -65,7 +64,7 @@ class HomePageWindow extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        const UserImageWidget(size: 250),
+                        // const UserImageWidget(size: 200),
                         const SizedBox(width: 24),
                         const Expanded(
                           child: Column(
@@ -74,13 +73,20 @@ class HomePageWindow extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InfoWidget(mainTextSize: 26),
-                              SizedBox(height: 32),
+                              SizedBox(height: 12),
                               SloganWidget(textSize: 18),
                             ],
                           ),
                         ),
                         ExportWidget(onExportClick: onExportClick),
                       ],
+                    ),
+                    Container(
+                      width: 120,
+                      height: 1,
+                      margin:
+                          const EdgeInsetsDirectional.only(top: 4, start: 24),
+                      color: Theme.of(context).primaryColor,
                     ),
                     BlocBuilder<EducationBloc, EducationState>(
                       builder: (context, state) => Padding(

@@ -186,10 +186,10 @@ class HomeDataSourceImpl implements HomeDataSource {
 
   @override
   Future<String> getImageUrl() async {
-    // final educations = storage.ref('/image/pedram.png');
+    // final educations = storage.ref('/image/pedram.jpg');
     // final url = await educations.getDownloadURL();
     // return url;
-    return 'assets/images/png/pedram.png';
+    return 'assets/images/png/pedram.jpg';
   }
 
   @override

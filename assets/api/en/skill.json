@@ -16,7 +16,23 @@
         "rate": 3
     },
     {
+        "title": "Dependency Injection",
+        "rate": 3
+    },
+    {
+        "title": "Clean Architecture",
+        "rate": 3
+    },
+    {
         "title": "Flutter Bloc",
+        "rate": 3
+    },
+    {
+        "title": "Restful Api",
+        "rate": 3
+    },
+    {
+        "title": "Provider",
         "rate": 3
     },
     {

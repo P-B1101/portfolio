@@ -7,10 +7,16 @@
         "iosLink": "https://apps.apple.com/ca/app/habitomic/id1609261995"
     },
     {
-        "title": "McMan",
-        "subtitle": "Comprehensive Health & Fitness Project",
-        "date": "2020-11-22",
-        "androidLink": "https://play.google.com/store/apps/details?id=com.mcman.android"
+        "title": "HamrahShahrPlus",
+        "subtitle": "Mobile bank for ShahrBank",
+        "androidLink": "https://cafebazaar.ir/app/com.citydi.hplus",
+        "iosLink": "https://app.appleapps.ir/id/1062990/",
+        "date": "2022-01-01"
+    },
+    {
+        "title": "HamrahShahr Backoffice",
+        "subtitle": "Backoffice for ShahrBank application",
+        "date": "2022-01-01"
     },
     {
         "title": "iClassifier",
@@ -22,7 +28,7 @@
         "title": "Hamamooz",
         "subtitle": "Self Learning Educational & Financial App",
         "date": "2018-08-22",
-        "androidLink": "https://play.google.com/store/apps/details?id=com.aryana",
+        "androidLink": "https://hamamooz.com/android/Hamamoozv3.apk",
         "iosLink": "https://anardoni.com/ios/app/xeJrXlAlW"
     }
 ]

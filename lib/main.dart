@@ -27,7 +27,6 @@ import 'injection_container.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Paint.enableDithering = true;
   setPathUrlStrategy();
   await init();
   runApp(
@@ -137,7 +136,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, child) {
           final MediaQueryData data = MediaQuery.of(context);
           return MediaQuery(
-            data: data.copyWith(textScaleFactor: 1.1),
+            data: data.copyWith(textScaler: const TextScaler.linear(1.1)),
             child: AppProvider(
               child: child!,
             ),

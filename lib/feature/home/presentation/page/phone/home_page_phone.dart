@@ -1,9 +1,9 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/feature/provider/presentation/widgets/app_provider.dart';
 
 import '../../../../language/utils/local_language.dart';
+import '../../../../provider/presentation/widgets/app_provider.dart';
 import '../../bloc/education_bloc.dart';
 import '../../bloc/info_bloc.dart';
 import '../../bloc/job_experience_bloc.dart';
@@ -20,7 +20,6 @@ import '../../widget/skill_widget.dart';
 import '../../widget/slogan_widget.dart';
 import '../../widget/software_widget.dart';
 import '../../widget/title_widget.dart';
-import '../../widget/user_image_widget.dart';
 
 class HomePagePhone extends StatelessWidget {
   const HomePagePhone({Key? key}) : super(key: key);
@@ -32,6 +31,7 @@ class HomePagePhone extends StatelessWidget {
         return SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
+            controller: ScrollController(),
             child: Padding(
               padding: const EdgeInsetsDirectional.only(end: 8),
               child: Column(
@@ -40,16 +40,16 @@ class HomePagePhone extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const SizedBox(height: 24),
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      UserImageWidget(
-                        size: MediaQuery.sizeOf(context).width * .6,
-                      ),
-                      const SizedBox(height: 24),
-                      const Padding(
+                      // UserImageWidget(
+                      //   size: MediaQuery.sizeOf(context).width * .4,
+                      // ),
+                      SizedBox(height: 24),
+                      Padding(
                         padding: EdgeInsetsDirectional.only(start: 24),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,12 +57,18 @@ class HomePagePhone extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             InfoWidget(mainTextSize: 24),
-                            SizedBox(height: 8),
+                            SizedBox(height: 4),
                             SloganWidget(textSize: 14),
                           ],
                         ),
                       ),
                     ],
+                  ),
+                  Container(
+                    width: 80,
+                    height: 1,
+                    margin: const EdgeInsetsDirectional.only(top: 4, start: 24),
+                    color: Theme.of(context).primaryColor,
                   ),
                   BlocBuilder<EducationBloc, EducationState>(
                     builder: (context, state) => Padding(
