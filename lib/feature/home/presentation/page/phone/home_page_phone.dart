@@ -22,7 +22,11 @@ import '../../widget/software_widget.dart';
 import '../../widget/title_widget.dart';
 
 class HomePagePhone extends StatelessWidget {
-  const HomePagePhone({Key? key}) : super(key: key);
+  final Function(String language) onChangeLanguageClick;
+  const HomePagePhone({
+    Key? key,
+    required this.onChangeLanguageClick,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

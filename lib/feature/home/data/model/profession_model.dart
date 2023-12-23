@@ -2,12 +2,9 @@ import '../../domain/entity/profession.dart';
 
 class ProfessionModel extends Profession {
   const ProfessionModel({
-    required String profession,
-    required String slogan,
-  }) : super(
-          profession: profession,
-          slogan: slogan,
-        );
+    required super.profession,
+    required super.slogan,
+  });
 
   factory ProfessionModel.fromJson(Map<String, dynamic> json) =>
       ProfessionModel(

@@ -18,6 +18,7 @@ import 'feature/home/presentation/page/home_page.dart';
 import 'feature/language/domain/entities/app_language.dart';
 import 'feature/language/presentation/cubit/language_cubit.dart';
 import 'feature/language/presentation/widgets/language_widget.dart';
+import 'feature/language/presentation/widgets/switcher_widget.dart';
 import 'feature/language/utils/local_language.dart';
 import 'feature/provider/presentation/widgets/app_provider.dart';
 import 'feature/theme/domain/entiries/app_theme.dart';
@@ -88,7 +89,10 @@ class _MyAppState extends State<MyApp> {
               : SystemUiOverlayStyle.light.copyWith(
                   statusBarColor: Colors.transparent,
                 ),
-          child: _materialApp(language: language, theme: theme),
+          child: _materialApp(
+            language: language,
+            theme: theme,
+          ),
         ),
       ),
     );
@@ -138,7 +142,10 @@ class _MyAppState extends State<MyApp> {
           return MediaQuery(
             data: data.copyWith(textScaler: const TextScaler.linear(1.1)),
             child: AppProvider(
-              child: child!,
+              child: LanguageSwitcherWidget(
+                language: language.language,
+                child: child!,
+              ),
             ),
           );
         },

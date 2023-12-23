@@ -1,5 +1,5 @@
 {
-    "app_title":"Portfolio",
+    "app_title": "Portfolio",
     "general_error": "Oops, something went wrong!",
     "educational_title": "Educational Backgrund:",
     "job_experiences_title": "Job Experiences:",
@@ -20,5 +20,7 @@
     "ios_link_label": "iOS",
     "web_link_label": "Web",
     "linked_in_link_label": "LinkedIn",
-    "portfolio_link_label": "Portfolio"
+    "portfolio_link_label": "Portfolio",
+    "farsi_label": "Persian",
+    "english_label": "English"
 }

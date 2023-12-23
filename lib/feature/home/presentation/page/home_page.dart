@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/feature/language/presentation/cubit/language_cubit.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../core/utils/enum.dart';
@@ -33,13 +34,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      context.read<EducationBloc>().add(GetEducationsEvent());
-      context.read<InfoBloc>().add(GetInfoEvent());
-      context.read<JobExperienceBloc>().add(GetJobExperienceEvent());
-      context.read<ProfessionBloc>().add(GetProfessionEvent());
-      context.read<ProjectBloc>().add(GetProjectEvent());
-      context.read<SkillBloc>().add(GetSkillEvent());
-      context.read<SoftwareBloc>().add(GetSoftwareEvent());
+      _getInfo();
     });
   }
 
@@ -129,16 +124,34 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).colorScheme.background,
         body: HomePageMain(
           onExportClick: _onExportClick,
+          onChangeLanguageClick: _onChangeLanguageClick,
           screenshotController: screenshotController,
         ),
       ),
     );
   }
 
+  void _getInfo() {
+    context.read<EducationBloc>().add(GetEducationsEvent());
+    context.read<InfoBloc>().add(GetInfoEvent());
+    context.read<JobExperienceBloc>().add(GetJobExperienceEvent());
+    context.read<ProfessionBloc>().add(GetProfessionEvent());
+    context.read<ProjectBloc>().add(GetProjectEvent());
+    context.read<SkillBloc>().add(GetSkillEvent());
+    context.read<SoftwareBloc>().add(GetSoftwareEvent());
+  }
+
   void _onExportClick() async {
     context
         .read<ExportBloc>()
         .add(RequestExportEvent(controller: screenshotController));
+  }
+
+  void _onChangeLanguageClick(String language) async {
+    context.read<LanguageCubit>().setApplicationLanguage = language;
+    Future.delayed(const Duration(milliseconds: 300));
+    if (!mounted) return;
+    _getInfo();
   }
 
   void _showError({

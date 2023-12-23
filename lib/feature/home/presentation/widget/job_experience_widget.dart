@@ -1,5 +1,7 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/extensions.dart';
+import 'package:portfolio/feature/language/presentation/widgets/language_widget.dart';
 
 import '../../../../core/utils/assets.dart';
 import '../../../language/utils/local_language.dart';
@@ -36,7 +38,8 @@ class JobExperienceWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '$index. ${experience.company}${Strings.of(context).virgul} ${experience.title}.',
+              '$index. ${experience.company}${Strings.of(context).virgul} ${experience.title}.'
+                  .toEnglishNumberOrPersianNumber(context),
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontSize: textSize,
@@ -45,15 +48,18 @@ class JobExperienceWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            Text(
-              '''${Strings.of(context).from_label} ${experience.fromDate.year} '''
-              '''${Strings.of(context).until_label} '''
-              '''${experience.isContinue ? Strings.of(context).now_label : experience.toDate.year}.''',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: textSize - 2,
-                fontWeight: Fonts.light300,
-                color: Theme.of(context).textTheme.titleMedium?.color,
+            LanguageWidget(
+              builder: (language) => Text(
+                '''${Strings.of(context).from_label} ${language.isFa ? experience.fromDateJalali?.year ?? '-' : experience.fromDate.year} '''
+                        '''${Strings.of(context).until_label} '''
+                        '''${experience.isContinue ? Strings.of(context).now_label : language.isFa ? experience.toDateJalali?.year ?? '-' : experience.toDate.year}.'''
+                    .toEnglishNumberOrPersianNumber(context),
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: textSize - 2,
+                  fontWeight: Fonts.light300,
+                  color: Theme.of(context).textTheme.titleMedium?.color,
+                ),
               ),
             ),
             Container(

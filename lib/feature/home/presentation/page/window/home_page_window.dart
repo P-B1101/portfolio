@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../../core/components/grid_widget.dart';
+import '../../../../language/presentation/widgets/language_label_widget.dart';
 import '../../../../language/utils/local_language.dart';
 import '../../../../provider/presentation/widgets/app_provider.dart';
 import '../../bloc/education_bloc.dart';
@@ -26,11 +27,13 @@ import '../../widget/title_widget.dart';
 
 class HomePageWindow extends StatelessWidget {
   final Function() onExportClick;
+  final Function(String language) onChangeLanguageClick;
   final ScreenshotController screenshotController;
   const HomePageWindow({
     Key? key,
     required this.onExportClick,
     required this.screenshotController,
+    required this.onChangeLanguageClick,
   }) : super(key: key);
 
   @override
@@ -79,6 +82,12 @@ class HomePageWindow extends StatelessWidget {
                           ),
                         ),
                         ExportWidget(onExportClick: onExportClick),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: LanguageLabelWidget(
+                            onChangeLanguageClick: onChangeLanguageClick,
+                          ),
+                        ),
                       ],
                     ),
                     Container(

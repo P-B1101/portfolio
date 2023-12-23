@@ -8,11 +8,13 @@ import 'window/home_page_window.dart';
 
 class HomePageMain extends StatelessWidget {
   final Function() onExportClick;
+  final Function(String language) onChangeLanguageClick;
   final ScreenshotController screenshotController;
   const HomePageMain({
     Key? key,
     required this.onExportClick,
     required this.screenshotController,
+    required this.onChangeLanguageClick,
   }) : super(key: key);
 
   @override
@@ -25,10 +27,11 @@ class HomePageMain extends StatelessWidget {
           ? HomePageWindow(
               onExportClick: onExportClick,
               screenshotController: screenshotController,
+              onChangeLanguageClick: onChangeLanguageClick,
             )
           : AppProvider.of(context).isTablet
               ? const HomePageTablet()
-              : const HomePagePhone(),
+              : HomePagePhone(onChangeLanguageClick: onChangeLanguageClick),
     );
   }
 }

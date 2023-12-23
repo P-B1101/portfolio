@@ -1,0 +1,17 @@
+[
+    {
+        "title": "اندروید استودیو",
+        "image": "assets/images/svg/android.svg",
+        "color": "DEEED5"
+    },
+    {
+        "title": "ویژوال استودیو کد",
+        "image": "assets/images/svg/vs.svg",
+        "color": "B5D2EC"
+    },
+    {
+        "title": "گیت",
+        "image": "assets/images/svg/git.svg",
+        "color": "ECCDC4"
+    }
+]

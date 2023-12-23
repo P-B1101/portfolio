@@ -11,20 +11,20 @@ part 'language_state.dart';
 
 @injectable
 class LanguageCubit extends Cubit<LanguageState> {
-  final GetAppLanguage getAppLanguage;
-  final SetAppLanguage setAppLanguage;
+  final SetAppLanguage _setAppLanguage;
 
   LanguageCubit({
-    required this.getAppLanguage,
-    required this.setAppLanguage,
-  }) : super(LanguageState(language: getAppLanguage()));
+    required GetAppLanguage getAppLanguage,
+    required SetAppLanguage setAppLanguage,
+  })  : _setAppLanguage = setAppLanguage,
+        super(LanguageState(language: getAppLanguage()));
 
   /// Save [language] using [SetAppLanguage] usecase
   /// and emit it.
   ///
   set setApplicationLanguage(String language) {
     final appLanguage = AppLanguageModel.fromString(language);
-    setAppLanguage(appLanguage);
+    _setAppLanguage(appLanguage);
     emit(LanguageState(language: appLanguage));
   }
 }

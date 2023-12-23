@@ -3,12 +3,9 @@ import '../../domain/entity/skill.dart';
 
 class SkillModel extends Skill {
   const SkillModel({
-    required String title,
-    required SkillRate rate,
-  }) : super(
-          rate: rate,
-          title: title,
-        );
+    required super.title,
+    required super.rate,
+  });
 
   factory SkillModel.fromJson(Map<String, dynamic> json) => SkillModel(
         title: json['title'],

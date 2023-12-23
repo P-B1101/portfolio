@@ -1,5 +1,6 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/extensions.dart';
 import 'package:url_launcher/link.dart';
 
 import '../../../../core/utils/assets.dart';
@@ -59,7 +60,8 @@ class ProjectWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    '$index. ${project.title} - ${project.subtitle}.',
+                    '$index. ${project.title} - ${project.subtitle}.'
+                        .toEnglishNumberOrPersianNumber(context),
                     textAlign: TextAlign.start,
                     style: TextStyle(
                       fontSize: textSize,

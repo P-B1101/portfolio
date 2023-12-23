@@ -1,0 +1,34 @@
+[
+    {
+        "title": "هبیتومیک",
+        "subtitle": "طرح ریز روزانه شخصی",
+        "date": "2021-08-22",
+        "androidLink": "https://play.google.com/store/apps/details?id=com.habitomic.android",
+        "iosLink": "https://apps.apple.com/ca/app/habitomic/id1609261995"
+    },
+    {
+        "title": "همراه شهر پلاس",
+        "subtitle": "اپلیکیشن همراه بانک شهر",
+        "androidLink": "https://cafebazaar.ir/app/com.citydi.hplus",
+        "iosLink": "https://app.appleapps.ir/id/1062990/",
+        "date": "2022-01-01"
+    },
+    {
+        "title": "سامانه بک آفیس همراه شهر پلاس",
+        "subtitle": "سامانه جامع بک آفیس اپلیکیشن همراه شهر پلاس",
+        "date": "2022-01-01"
+    },
+    {
+        "title": "آی-کلسیفایر",
+        "subtitle": "اپلیکیشن وب برای طبقه بندی گاو ها",
+        "date": "2022-01-01",
+        "webLink": "https://app.iclassifier.ca/"
+    },
+    {
+        "title": "هم آموز",
+        "subtitle": "اپلیکیشن خود آموز در زمینه مالی و آموزشی",
+        "date": "2018-08-22",
+        "androidLink": "https://hamamooz.com/android/Hamamoozv3.apk",
+        "iosLink": "https://anardoni.com/ios/app/xeJrXlAlW"
+    }
+]

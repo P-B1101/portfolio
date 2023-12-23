@@ -1,5 +1,5 @@
 {
-    "app_title": "پورتفولیو",
+    "app_title": "رزومه آنلاین",
     "general_error": "اوپس، خطایی رخ داد",
     "educational_title": "سابقه تحصیلی:",
     "job_experiences_title": "تجربه کاری:",
@@ -20,5 +20,7 @@
     "ios_link_label": "آی او اس",
     "web_link_label": "وب",
     "linked_in_link_label": "لینکدین",
-    "portfolio_link_label": "رزومه آنلاین"
+    "portfolio_link_label": "رزومه آنلاین",
+    "farsi_label": "فارسی",
+    "english_label": "انگلیسی"
 }

@@ -1,5 +1,6 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/extensions.dart';
 
 import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/enum.dart';
@@ -33,7 +34,8 @@ class SkillWidget extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
-                text: '$index. ${skill.title} ',
+                text: '$index. ${skill.title} '
+                    .toEnglishNumberOrPersianNumber(context),
                 style: TextStyle(
                   fontSize: textSize,
                   color: Theme.of(context).textTheme.bodyLarge?.color,

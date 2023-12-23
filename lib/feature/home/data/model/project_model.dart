@@ -1,21 +1,17 @@
+import 'package:portfolio/core/utils/extensions.dart';
+
 import '../../domain/entity/project.dart';
 
 class ProjectModel extends Project {
   const ProjectModel({
-    required String title,
-    required String subtitle,
-    required DateTime date,
-    required String androidLink,
-    required String iosLink,
-    required String webAppLink,
-  }) : super(
-          androidLink: androidLink,
-          date: date,
-          iosLink: iosLink,
-          subtitle: subtitle,
-          title: title,
-          webAppLink: webAppLink,
-        );
+    required super.title,
+    required super.subtitle,
+    required super.date,
+    required super.androidLink,
+    required super.iosLink,
+    required super.webAppLink,
+    required super.dateJalali,
+  });
 
   factory ProjectModel.fromJson(Map<String, dynamic> json) => ProjectModel(
         title: json['title'],
@@ -24,5 +20,6 @@ class ProjectModel extends Project {
         androidLink: json['androidLink'] ?? '',
         iosLink: json['iosLink'] ?? '',
         webAppLink: json['webLink'] ?? '',
+        dateJalali: json.toLocalJalali('date'),
       );
 }

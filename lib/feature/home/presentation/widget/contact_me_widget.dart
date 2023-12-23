@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/extensions.dart';
 
 import '../../../../core/utils/assets.dart';
 import '../../../language/utils/local_language.dart';
@@ -28,7 +29,7 @@ class ContactMeWidget extends StatelessWidget {
               ),
               TitleWidget(
                 textSize: 18,
-                title: info?.phoneNumber,
+                title: info?.phoneNumber.toEnglishNumberOrPersianNumber(context),
                 fontWeight: Fonts.light300,
               ),
               const SizedBox(height: 24),

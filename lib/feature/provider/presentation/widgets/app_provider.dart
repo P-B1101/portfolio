@@ -1,5 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/feature/language/domain/entities/app_language.dart';
+import 'package:portfolio/feature/language/presentation/cubit/language_cubit.dart';
 
 import 'app_provider_inherited.dart';
 
@@ -28,6 +31,8 @@ class AppProviderState extends State<AppProvider> {
       child: widget.child,
     );
   }
+
+  AppLanguage get language => context.read<LanguageCubit>().state.language;
 
   bool get isExtraSmall => MediaQuery.of(context).size.width < 300;
 

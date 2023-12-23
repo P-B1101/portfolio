@@ -1,19 +1,17 @@
+import 'package:portfolio/core/utils/extensions.dart';
+
 import '../../domain/entity/job_experience.dart';
 
 class JobExperienceModel extends JobExperience {
   const JobExperienceModel({
-    required String company,
-    required String title,
-    required DateTime fromDate,
-    required DateTime toDate,
-    required bool isContinue,
-  }) : super(
-          company: company,
-          fromDate: fromDate,
-          isContinue: isContinue,
-          title: title,
-          toDate: toDate,
-        );
+    required super.company,
+    required super.title,
+    required super.fromDate,
+    required super.toDate,
+    required super.isContinue,
+    required super.fromDateJalali,
+    required super.toDateJalali,
+  });
 
   factory JobExperienceModel.fromJson(Map<String, dynamic> json) =>
       JobExperienceModel(
@@ -22,5 +20,7 @@ class JobExperienceModel extends JobExperience {
         isContinue: json['isContinue'],
         fromDate: DateTime.parse(json['fromDate']),
         toDate: DateTime.parse(json['toDate']),
+        fromDateJalali: json.toLocalJalali('fromDate'),
+        toDateJalali: json.toLocalJalali('toDate'),
       );
 }

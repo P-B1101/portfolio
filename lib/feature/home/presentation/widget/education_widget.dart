@@ -1,5 +1,7 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/extensions.dart';
+import 'package:portfolio/feature/language/presentation/widgets/language_widget.dart';
 import 'package:portfolio/feature/language/utils/local_language.dart';
 import 'package:portfolio/feature/provider/presentation/widgets/app_provider.dart';
 
@@ -36,7 +38,7 @@ class EducationWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '$index. ${education.mainField} - ${education.academicOrientation} - ${education.school}.',
+              '$index. ${education.mainField} - ${education.academicOrientation} - ${education.school}.'.toEnglishNumberOrPersianNumber(context),
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontSize: textSize,
@@ -45,14 +47,17 @@ class EducationWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            Text(
-              '''${Strings.of(context).from_label} ${education.fromDate.year} '''
-              '''${Strings.of(context).until_label} ${education.toDate.year}.''',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: textSize - 2,
-                fontWeight: Fonts.light300,
-                color: Theme.of(context).textTheme.titleMedium?.color,
+            LanguageWidget(
+              builder: (language) => Text(
+                '''${Strings.of(context).from_label} ${language.isFa ? education.fromDateJalali?.year ?? '-' : education.fromDate.year} '''
+                        '''${Strings.of(context).until_label} ${language.isFa ? education.toDateJalali?.year ?? '-' : education.toDate.year}.'''
+                    .toEnglishNumberOrPersianNumber(context),
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: textSize - 2,
+                  fontWeight: Fonts.light300,
+                  color: Theme.of(context).textTheme.titleMedium?.color,
+                ),
               ),
             ),
             Container(

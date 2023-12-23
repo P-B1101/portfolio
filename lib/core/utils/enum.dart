@@ -9,3 +9,8 @@ enum SkillRate {
   good,
   advance,
 }
+
+enum SwitchState {
+  done,
+  switching,
+}
