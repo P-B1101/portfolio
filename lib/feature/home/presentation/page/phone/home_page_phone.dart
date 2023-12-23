@@ -2,6 +2,7 @@ import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../language/presentation/widgets/language_label_widget.dart';
 import '../../../../language/utils/local_language.dart';
 import '../../../../provider/presentation/widgets/app_provider.dart';
 import '../../bloc/education_bloc.dart';
@@ -44,30 +45,54 @@ class HomePagePhone extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const SizedBox(height: 24),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      // UserImageWidget(
-                      //   size: MediaQuery.sizeOf(context).width * .4,
-                      // ),
-                      SizedBox(height: 24),
-                      Padding(
-                        padding: EdgeInsetsDirectional.only(start: 24),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.max,
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(start: 24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Row(
                           children: [
-                            InfoWidget(mainTextSize: 24),
-                            SizedBox(height: 4),
-                            SloganWidget(textSize: 14),
+                            const Expanded(child: InfoWidget(mainTextSize: 24)),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
+                              child: LanguageLabelWidget(
+                                onChangeLanguageClick: onChangeLanguageClick,
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 4),
+                        const SloganWidget(textSize: 14),
+                      ],
+                    ),
                   ),
+                  // const Column(
+                  //   crossAxisAlignment: CrossAxisAlignment.center,
+                  //   mainAxisAlignment: MainAxisAlignment.start,
+                  //   mainAxisSize: MainAxisSize.max,
+                  //   children: [
+                  //     // UserImageWidget(
+                  //     //   size: MediaQuery.sizeOf(context).width * .4,
+                  //     // ),
+                  //     // SizedBox(height: 24),
+                  //     Padding(
+                  //       padding: EdgeInsetsDirectional.only(start: 24),
+                  //       child: Column(
+                  //         crossAxisAlignment: CrossAxisAlignment.start,
+                  //         mainAxisAlignment: MainAxisAlignment.start,
+                  //         mainAxisSize: MainAxisSize.max,
+                  //         children: [
+                  //           InfoWidget(mainTextSize: 24),
+                  //           SizedBox(height: 4),
+                  //           SloganWidget(textSize: 14),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   Container(
                     width: 80,
                     height: 1,
