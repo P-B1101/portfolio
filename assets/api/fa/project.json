@@ -7,12 +7,6 @@
         "iosLink": "https://apps.apple.com/ca/app/habitomic/id1609261995"
     },
     {
-        "title": "حساب وکالتی بانک شهر",
-        "subtitle": "سامانه حساب وکالتی بانک شهر",
-        "webLink": "https://vekalati.shahr-bank.ir",
-        "date": "2023-04-01"
-    },
-    {
         "title": "همراه شهر پلاس",
         "subtitle": "اپلیکیشن همراه بانک شهر",
         "androidLink": "https://cafebazaar.ir/app/com.citydi.hplus",
@@ -23,6 +17,11 @@
         "title": "سامانه بک آفیس همراه شهر پلاس",
         "subtitle": "سامانه جامع بک آفیس اپلیکیشن همراه شهر پلاس",
         "date": "2022-01-01"
+    },
+    {
+        "title": "حساب وکالتی بانک شهر",
+        "subtitle": "سامانه حساب وکالتی بانک شهر",
+        "date": "2023-04-01"
     },
     {
         "title": "آی-کلسیفایر",

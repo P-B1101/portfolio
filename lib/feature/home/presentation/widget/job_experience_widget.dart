@@ -1,7 +1,7 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/extensions.dart';
-import 'package:portfolio/feature/language/presentation/widgets/language_widget.dart';
+import '../../../../core/utils/extensions.dart';
+import '../../../language/presentation/widgets/language_widget.dart';
 
 import '../../../../core/utils/assets.dart';
 import '../../../language/utils/local_language.dart';

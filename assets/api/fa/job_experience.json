@@ -1,10 +1,10 @@
 [
     {
-        "company": "پاراتک",
-        "title": "توسعه دهنده اندروید و فلاتر",
-        "fromDate": "2017-08-23",
-        "toDate": "2022-04-20",
-        "isContinue": false
+        "company": "هلدینگ نگاه",
+        "title": "توسعه دهنده فلاتر",
+        "fromDate": "2023-07-23",
+        "toDate": "2023-07-23",
+        "isContinue": true
     },
     {
         "company": "توسعه و نوآوری شهر",
@@ -14,10 +14,10 @@
         "isContinue": false
     },
     {
-        "company": "هلدینگ نگاه",
-        "title": "توسعه دهنده فلاتر",
-        "fromDate": "2023-07-23",
-        "toDate": "2023-07-23",
-        "isContinue": true
+        "company": "پاراتک",
+        "title": "توسعه دهنده اندروید و فلاتر",
+        "fromDate": "2017-08-23",
+        "toDate": "2022-04-20",
+        "isContinue": false
     }
 ]

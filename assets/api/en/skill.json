@@ -8,19 +8,11 @@
         "rate": 3
     },
     {
-        "title": "Bloc Design Pattern",
-        "rate": 3
-    },
-    {
-        "title": "Object-Oriented Programming (OOP)",
-        "rate": 3
-    },
-    {
-        "title": "Dependency Injection",
-        "rate": 3
-    },
-    {
         "title": "Clean Architecture",
+        "rate": 3
+    },
+    {
+        "title": "Bloc Design Pattern",
         "rate": 3
     },
     {
@@ -28,7 +20,7 @@
         "rate": 3
     },
     {
-        "title": "Restful Api",
+        "title": "Dependency Injection",
         "rate": 3
     },
     {
@@ -36,7 +28,19 @@
         "rate": 3
     },
     {
+        "title": "Object-Oriented Programming (OOP)",
+        "rate": 3
+    },
+    {
         "title": "Flutter Web",
+        "rate": 3
+    },
+    {
+        "title": "Test Driven Development",
+        "rate": 2
+    },
+    {
+        "title": "Restful Api",
         "rate": 3
     },
     {
@@ -45,10 +49,6 @@
     },
     {
         "title": "Android Development",
-        "rate": 2
-    },
-    {
-        "title": "Test Driven Development",
         "rate": 2
     }
 ]

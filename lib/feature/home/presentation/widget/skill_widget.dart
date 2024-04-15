@@ -41,13 +41,13 @@ class SkillWidget extends StatelessWidget {
                   color: Theme.of(context).textTheme.bodyLarge?.color,
                 ),
               ),
-              TextSpan(
-                text: _getRateString(context),
-                style: TextStyle(
-                  fontSize: textSize - 1,
-                  color: _getColor,
-                ),
-              ),
+              // TextSpan(
+              //   text: _getRateString(context),
+              //   style: TextStyle(
+              //     fontSize: textSize - 1,
+              //     color: _getColor,
+              //   ),
+              // ),
             ],
           ),
           textAlign: TextAlign.start,
