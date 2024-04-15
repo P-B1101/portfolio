@@ -1,10 +1,8 @@
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/extensions.dart';
 
 import '../../../../core/utils/assets.dart';
-import '../../../../core/utils/enum.dart';
-import '../../../language/utils/local_language.dart';
+import '../../../../core/utils/extensions.dart';
 import '../../../provider/presentation/widgets/app_provider.dart';
 import '../../domain/entity/skill.dart';
 
@@ -59,25 +57,25 @@ class SkillWidget extends StatelessWidget {
     );
   }
 
-  Color get _getColor {
-    switch (skill.rate) {
-      case SkillRate.starter:
-        return MyColors.primaryColor;
-      case SkillRate.good:
-        return MyColors.blueColor;
-      case SkillRate.advance:
-        return MyColors.greenColor;
-    }
-  }
+  // Color get _getColor {
+  //   switch (skill.rate) {
+  //     case SkillRate.starter:
+  //       return MyColors.primaryColor;
+  //     case SkillRate.good:
+  //       return MyColors.blueColor;
+  //     case SkillRate.advance:
+  //       return MyColors.greenColor;
+  //   }
+  // }
 
-  String _getRateString(BuildContext context) {
-    switch (skill.rate) {
-      case SkillRate.starter:
-        return Strings.of(context).starter;
-      case SkillRate.good:
-        return Strings.of(context).good;
-      case SkillRate.advance:
-        return Strings.of(context).advance;
-    }
-  }
+  // String _getRateString(BuildContext context) {
+  //   switch (skill.rate) {
+  //     case SkillRate.starter:
+  //       return Strings.of(context).starter;
+  //     case SkillRate.good:
+  //       return Strings.of(context).good;
+  //     case SkillRate.advance:
+  //       return Strings.of(context).advance;
+  //   }
+  // }
 }
