@@ -12,7 +12,7 @@ final getIt = GetIt.instance;
 
 @injectableInit
 Future<void> configureDependencies() async {
-  getIt.init();
+  await getIt.init();
 }
 
 @module

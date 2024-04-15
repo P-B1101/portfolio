@@ -33,9 +33,6 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider<LanguageCubit>(
-          create: (context) => getIt<LanguageCubit>(),
-        ),
         BlocProvider<ThemeCubit>(
           create: (context) => getIt<ThemeCubit>(),
         ),
@@ -62,6 +59,9 @@ void main() async {
         ),
         BlocProvider<ExportBloc>(
           create: (context) => getIt<ExportBloc>(),
+        ),
+        BlocProvider<LanguageCubit>(
+          create: (context) => getIt<LanguageCubit>(),
         ),
       ],
       child: const MyApp(),
