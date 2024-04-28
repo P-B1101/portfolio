@@ -358,6 +358,22 @@ class HomePagePhone extends StatelessWidget {
                                   ),
                           ),
                         ),
+                        BlocBuilder<InfoBloc, InfoState>(
+                          builder: (context, state) => Padding(
+                            padding: const EdgeInsetsDirectional.only(
+                              top: 16,
+                              start: 24,
+                            ),
+                            child: state.info == null ||
+                                    !state.info!.hasGithubUrl
+                                ? null
+                                : QRWidget(
+                                    title:
+                                        Strings.of(context).github_link_label,
+                                    url: state.info!.githubUrl,
+                                  ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

@@ -21,6 +21,7 @@
     "web_link_label": "Web",
     "linked_in_link_label": "LinkedIn",
     "portfolio_link_label": "Portfolio",
+    "github_link_label": "Github",
     "farsi_label": "Persian",
     "english_label": "English"
 }

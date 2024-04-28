@@ -343,6 +343,22 @@ class HomePageWindow extends StatelessWidget {
                                   ),
                           ),
                         ),
+                        BlocBuilder<InfoBloc, InfoState>(
+                          builder: (context, state) => Padding(
+                            padding: const EdgeInsetsDirectional.only(
+                              top: 24,
+                              start: 32,
+                            ),
+                            child: state.info == null ||
+                                    !state.info!.hasGithubUrl
+                                ? null
+                                : QRWidget(
+                                    title:
+                                        Strings.of(context).github_link_label,
+                                    url: state.info!.githubUrl,
+                                  ),
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 32),

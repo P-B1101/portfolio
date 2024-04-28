@@ -8,6 +8,7 @@ class Info extends Equatable {
   final String image;
   final String linkedInUrl;
   final String portfolioUrl;
+  final String githubUrl;
 
   const Info({
     required this.name,
@@ -17,6 +18,7 @@ class Info extends Equatable {
     required this.image,
     required this.linkedInUrl,
     required this.portfolioUrl,
+    required this.githubUrl,
   });
   @override
   List<Object?> get props => [
@@ -27,6 +29,7 @@ class Info extends Equatable {
         image,
         linkedInUrl,
         portfolioUrl,
+        githubUrl,
       ];
 
   Info copyWith({
@@ -40,11 +43,14 @@ class Info extends Equatable {
         linkedInUrl: linkedInUrl,
         image: imageUrl ?? image,
         portfolioUrl: portfolioUrl,
+        githubUrl: githubUrl,
       );
 
   bool get hasLinkedInUrl => linkedInUrl.isNotEmpty;
-  
+
   bool get hasPortfolioUrl => portfolioUrl.isNotEmpty;
+
+  bool get hasGithubUrl => githubUrl.isNotEmpty;
 
   String get getFullName => '$name $lastName';
 }

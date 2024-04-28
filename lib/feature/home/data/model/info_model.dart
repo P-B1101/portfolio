@@ -9,6 +9,7 @@ class InfoModel extends Info {
     required super.image,
     required super.linkedInUrl,
     required super.portfolioUrl,
+    required super.githubUrl,
   });
   factory InfoModel.fromJson(Map<String, dynamic> json) => InfoModel(
         name: json['name'],
@@ -18,5 +19,6 @@ class InfoModel extends Info {
         image: json['image'],
         linkedInUrl: json['linkedInUrl'] ?? '',
         portfolioUrl: json['portfolioUrl'] ?? '',
+        githubUrl: json['githubUrl'] ?? '',
       );
 }
