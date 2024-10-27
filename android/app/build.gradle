@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         applicationId "com.pedram.portfolio"
-        minSdkVersion 16
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

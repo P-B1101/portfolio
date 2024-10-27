@@ -128,7 +128,7 @@ class _MyAppState extends State<MyApp> {
           colorScheme: ColorScheme.fromSeed(
             seedColor: MyColors.primaryColor,
             brightness: Brightness.dark,
-          ).copyWith(background: MyColors.secondBackgroundColor),
+          ).copyWith(surface: MyColors.secondBackgroundColor),
         ),
         locale: Locale(language.language),
         localizationsDelegates: AppLocalizations.localizationsDelegates,

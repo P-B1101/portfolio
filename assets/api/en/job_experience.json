@@ -1,10 +1,17 @@
 [
     {
+        "company": "Dotin",
+        "title": "Flutter Developer",
+        "fromDate": "2024-05-15",
+        "toDate": "2024-05-15",
+        "isContinue": true
+    },
+    {
         "company": "Negah Holding",
         "title": "Flutter Developer",
         "fromDate": "2023-07-23",
-        "toDate": "2023-07-23",
-        "isContinue": true
+        "toDate": "2024-05-14",
+        "isContinue": false
     },
     {
         "company": "City Development and innovation",
