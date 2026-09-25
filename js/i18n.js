@@ -52,7 +52,13 @@
     'c3.kicker': 'فصل ۰۳ · ۱۳۹۷',
     'c3.h2': 'هم‌آموز منتشر شد.',
     'c3.p': 'یک اپلیکیشن خودآموز در حوزه آموزش و مسائل مالی؛ منتشرشده برای اندروید و iOS.',
-    'c3.links': L('https://hamamooz.com/android/Hamamoozv3.apk', 'اندروید') + L('https://anardoni.com/ios/app/xeJrXlAlW', 'iOS'),
+    'c3.links': L(
+      'https://hamamooz.com/android/Hamamoozv3.apk',
+      'اندروید'
+    ) + L(
+      'https://anardoni.com/ios/app/xeJrXlAlW',
+      'iOS'
+    ),
     'c3.app': 'هم‌آموز',
 
     // 2021
@@ -61,7 +67,13 @@
     'c4.kicker': 'فصل ۰۴ · ۱۴۰۰',
     'c4.h2': 'هبیتومیک.',
     'c4.p': 'یک برنامه‌ریز روزانه شخصی برای ساختن عادت‌ها و نظم دادن به روزها؛ منتشرشده در گوگل پلی و اپ استور.',
-    'c4.links': L('https://play.google.com/store/apps/details?id=com.habitomic.android', 'اندروید') + L('https://apps.apple.com/ca/app/habitomic/id1609261995', 'iOS'),
+    'c4.links': L(
+      'https://play.google.com/store/apps/details?id=com.habitomic.android',
+      'اندروید'
+    ) + L(
+      'https://apps.apple.com/ca/app/habitomic/id1609261995',
+      'iOS'
+    ),
 
     'mock.today': 'امروز',
     'mock.day': 'روز من',
@@ -72,7 +84,13 @@
     'c5.kicker': 'فصل ۰۵ · ۱۴۰۱',
     'c5.h2': 'بعد، نوبت بانک بود.',
     'c5.p': 'اردیبهشت به توسعه و نوآوری شهر پیوستم. آنجا روی «همراه شهر پلاس»، اپلیکیشن همراه‌بانک شهر، و سامانه بک‌آفیس آن کار کردیم.',
-    'c5.links': L('https://cafebazaar.ir/app/com.citydi.hplus', 'اندروید') + L('https://app.appleapps.ir/id/1062990/', 'iOS') + '<span class="private mono">بک‌آفیس: داخلی</span>',
+    'c5.links': L(
+      'https://cafebazaar.ir/app/com.citydi.hplus',
+      'اندروید'
+    ) + L(
+      'https://app.appleapps.ir/id/1062990/',
+      'iOS'
+    ) + '<span class="private mono">بک‌آفیس: داخلی</span>',
     'c5.app': 'همراه شهر',
 
     // 2022 — Web
@@ -81,7 +99,10 @@
     'c6.kicker': 'فصل ۰۶ · ۱۴۰۱',
     'c6.h2': 'این بار، فلاتر در مرورگر.',
     'c6.p': 'همان سال، روی صفحه‌ای متفاوت: iClassifier، یک اپلیکیشن تحت وب برای طبقه‌بندی گاوها. از اینجا فلاتر وب هم بخشی از مسیرم شد.',
-    'c6.links': L('https://app.iclassifier.ca/', 'وب'),
+    'c6.links': L(
+      'https://app.iclassifier.ca/',
+      'وب'
+    ),
 
     // 2023
     'y7': '۱۴۰۲',
@@ -145,39 +166,77 @@
   };
 
   const lang = document.documentElement.lang === 'fa' ? 'fa' : 'en';
-  try { localStorage.setItem('lang', lang); } catch (e) { }
+
+  try {
+    localStorage.setItem('lang', lang);
+  } catch (e) { }
+
   window.LANG = lang;
+
   if (lang !== 'fa') return;
 
   document.title = FA.title;
-  document.querySelector('meta[name="description"]')?.setAttribute('content', FA.description);
+
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute('content', FA.description);
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const v = FA[el.dataset.i18n];
-    if (typeof v === 'string') el.innerHTML = v;
+
+    if (typeof v === 'string') {
+      el.innerHTML = v;
+    }
   });
+
   document.querySelectorAll('[data-i18n-attr]').forEach(el => {
     el.dataset.i18nAttr.split(';').forEach(pair => {
       const [attr, key] = pair.split(':');
-      if (FA[key]) el.setAttribute(attr, FA[key]);
+
+      if (FA[key]) {
+        el.setAttribute(attr, FA[key]);
+      }
     });
   });
+
   document.querySelectorAll('[data-i18n-href]').forEach(el => {
     const v = FA[el.dataset.i18nHref];
-    if (v) el.setAttribute('href', v);
+
+    if (v) {
+      el.setAttribute('href', v);
+    }
   });
+
   document.querySelectorAll('[data-i18n-year]').forEach(el => {
     const v = FA[el.dataset.i18nYear];
-    if (v) el.dataset.year = v;
+
+    if (v) {
+      el.dataset.year = v;
+    }
   });
+
   document.querySelectorAll('[data-i18n-list]').forEach(list => {
     const items = FA[list.dataset.i18nList] || [];
+
     [...list.children].forEach((li, i) => {
       const span = li.querySelector('span');
-      if (span && items[i]) span.textContent = items[i];
+
+      if (span && items[i]) {
+        span.textContent = items[i];
+      }
     });
   });
+
   const hudNow = document.querySelector('.hud-now');
-  if (hudNow) hudNow.textContent = FA.y0;
+
+  if (hudNow) {
+    hudNow.textContent = FA.y0;
+  }
+
   const sw = document.querySelector('.lang-switch');
-  if (sw) { sw.lang = 'en'; sw.hreflang = 'en'; }
+
+  if (sw) {
+    sw.lang = 'en';
+    sw.hreflang = 'en';
+  }
 })();
