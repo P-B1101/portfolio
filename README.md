@@ -1,6 +1,13 @@
-# B1101-Portfolio
+# B1101 Portfolio
 
-This is my online resume.
+My personal site, live at [b1101-portfolio.web.app](https://b1101-portfolio.web.app/).
 
-## Find me
-You can find my resume [here](https://b1101-portfolio.web.app/).
+Plain HTML, CSS and a little JavaScript. No build step.
+
+- `index.html` – the page
+- `css/style.css` – all styles and animations
+- `js/main.js` – pointer tilt, scroll reveals, phone clock
+
+Run it locally with any static server, e.g. `python3 -m http.server`, then open http://localhost:8000.
+
+Deploy with `firebase deploy --only hosting`.

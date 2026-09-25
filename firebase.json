@@ -1,15 +1,17 @@
 {
   "hosting": {
-    "public": "build/web",
+    "public": ".",
     "ignore": [
       "firebase.json",
+      "README.md",
+      "LICENSE",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "headers": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "**/*.@(css|js|jpg|webp|png)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
       }
     ]
   }
