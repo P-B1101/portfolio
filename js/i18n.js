@@ -18,8 +18,8 @@
     'cv': 'رزومه <span aria-hidden="true">↓</span>',
     'cv.pro': '<b>نسخه رسمی</b><small>ساده، متنی، یک صفحه</small>',
     'cv.fancy': '<b>نسخه طراحی‌شده</b><small>رنگی، همراه با آیکون</small>',
-    'cv.pro.href': 'cv/pdf/pedram-cv-professional-fa.pdf?v=2.0.1',
-    'cv.fancy.href': 'cv/pdf/pedram-cv-designed-fa.pdf?v=2.0.1',
+    'cv.pro.href': 'cv/pdf/pedram-cv-professional-fa.pdf?v=2.0.2',
+    'cv.fancy.href': 'cv/pdf/pedram-cv-designed-fa.pdf?v=2.0.2',
 
     'story': 'داستان تا امروز',
 
