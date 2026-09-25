@@ -16,6 +16,17 @@ Run it locally with any static server, e.g. `python3 -m http.server`, then open 
 
 Deploy with `firebase deploy --only hosting`.
 
+## Versions
+
+The current version is in `VERSION` and shows in the footer. To release a new one:
+
+```
+node tools/version.mjs 2.0.1
+git commit -am "v2.0.1" && git tag v2.0.1 && git push --follow-tags
+```
+
+The script also updates the `?v=` keys on the CSS, JS, font and CV links, so returning visitors get the new files instead of cached ones.
+
 ## CV PDFs
 
 `cv/pdf/` holds the downloadable CVs (professional and designed, English and Farsi).

@@ -410,6 +410,7 @@ a { color: inherit; }
 .socials a:hover i { transform: translate(3px, -3px) rotate(45deg); }
 .foot { display: flex; justify-content: space-between; gap: 16px; padding: 26px var(--gutter); background: var(--ink); color: var(--paper); text-transform: none; }
 .foot a { text-decoration: none; }
+.foot .ver { opacity: .5; margin-inline-start: .6em; }
 .foot a:hover { color: var(--amber); }
 
 /* ---------- responsive ---------- */

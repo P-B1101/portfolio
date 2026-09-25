@@ -15,8 +15,8 @@
     'cv': 'رزومه <span aria-hidden="true">↓</span>',
     'cv.pro': '<b>رسمی</b><small>فقط متن، یک صفحه</small>',
     'cv.fancy': '<b>طراحی شده</b><small>رنگی، با آیکون</small>',
-    'cv.pro.href': 'cv/pdf/pedram-cv-professional-fa.pdf',
-    'cv.fancy.href': 'cv/pdf/pedram-cv-designed-fa.pdf',
+    'cv.pro.href': 'cv/pdf/pedram-cv-professional-fa.pdf?v=2.0.0',
+    'cv.fancy.href': 'cv/pdf/pedram-cv-designed-fa.pdf?v=2.0.0',
     'story': 'داستان تا امروز',
 
     'y0': 'سلام',
