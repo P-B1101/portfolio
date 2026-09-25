@@ -202,9 +202,12 @@
       cur.style.setProperty('--cx', e.clientX + 'px');
       cur.style.setProperty('--cy', e.clientY + 'px');
     }, { passive: true });
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('pointerenter', () => cur.style.setProperty('--cs', 2.4));
-      el.addEventListener('pointerleave', () => cur.style.setProperty('--cs', 1));
+    document.querySelectorAll('a, button, summary').forEach(el => {
+      el.addEventListener('pointerenter', () => { cur.style.setProperty('--cs', 2.4); cur.classList.add('on-link'); });
+      el.addEventListener('pointerleave', () => { cur.style.setProperty('--cs', 1); cur.classList.remove('on-link'); });
     });
+    // hide the dot when the pointer leaves the window
+    root.addEventListener('mouseleave', () => body.classList.add('cursor-out'));
+    root.addEventListener('mouseenter', () => body.classList.remove('cursor-out'));
   }
 })();

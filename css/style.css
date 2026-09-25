@@ -53,12 +53,18 @@ a { color: inherit; }
   position: fixed; left: 0; top: 0; z-index: 99; pointer-events: none;
   width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%;
   background: var(--amber);
-  transform: translate3d(var(--cx, -100px), var(--cy, -100px), 0) scale(var(--cs, 1));
-  transition: transform .18s var(--ease-out), opacity .2s;
+  box-shadow: 0 0 0 1.5px rgba(18, 17, 16, .55);
+  translate: var(--cx, -100px) var(--cy, -100px);
+  scale: var(--cs, 1);
+  transition: scale .18s var(--ease-out), opacity .2s, background-color .18s;
   opacity: 0;
 }
 @media (hover: hover) and (pointer: fine) {
-  body.has-cursor .cursor { opacity: .85; }
+  /* the dot is the pointer: hide the system arrow */
+  body.has-cursor, body.has-cursor * { cursor: none !important; }
+  body.has-cursor .cursor { opacity: 1; }
+  body.has-cursor.cursor-out .cursor { opacity: 0; }
+  .cursor.on-link { background: rgba(255, 185, 0, .45); }
 }
 
 /* ---------- header ---------- */
