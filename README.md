@@ -6,7 +6,7 @@ Plain HTML, CSS and a little JavaScript. No build step.
 
 - `index.html` – the page
 - `css/style.css` – all styles and animations
-- `js/main.js` – pointer tilt, scroll reveals, phone clock
+- `js/main.js` – the scroll-driven 3D camera, pointer tilt, reveals
 
 Run it locally with any static server, e.g. `python3 -m http.server`, then open http://localhost:8000.
 

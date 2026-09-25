@@ -1,103 +1,178 @@
-// Small bits CSS can't do alone: pointer tilt, scroll reveals, the phone clock.
+// The bits CSS can't do alone: the scroll-driven camera, pointer tilt, reveals.
 (() => {
   const root = document.documentElement;
-  root.classList.remove('no-js');
   const body = document.body;
+  root.classList.remove('no-js');
+
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+  const lerp = (a, b, t) => a + (b - a) * t;
 
-  // intro
-  body.classList.add('intro');
-  requestAnimationFrame(() => body.classList.add('ready'));
+  const year = new Date().getFullYear();
+  document.querySelectorAll('.yr').forEach(el => { el.textContent = year; });
+  document.querySelectorAll('.since').forEach(el => { el.textContent = year - 2017; });
 
-  // year + phone clock
-  document.querySelectorAll('.yr').forEach(el => { el.textContent = new Date().getFullYear(); });
-  const clock = document.querySelector('.clock');
-  const tick = () => {
-    const d = new Date();
-    clock.textContent = String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
-  };
-  tick(); setInterval(tick, 20000);
+  /* ---------------- the journey ---------------- */
+  const journey = document.querySelector('.journey');
+  const world = journey.querySelector('.world');
+  const floor = journey.querySelector('.floor');
+  const hud = journey.querySelector('.hud');
+  const hudNow = journey.querySelector('.hud-now');
+  const hint = journey.querySelector('.hint');
+  const rail = journey.querySelector('.rail');
+  const chapters = [...journey.querySelectorAll('.ch')];
+  const n = chapters.length;
 
-  // phone follows the pointer (desktop) or the scroll (touch)
-  const rig = document.querySelector('.rig');
-  const glare = document.querySelector('.glare');
-  const setTilt = (x, y) => {
-    rig.style.setProperty('--ry', (-22 + x * 34).toFixed(2) + 'deg');
-    rig.style.setProperty('--rx', (8 - y * 18).toFixed(2) + 'deg');
-    glare.style.setProperty('--gl', (x * 40).toFixed(1) + 'deg');
-  };
   if (!still) {
+    root.classList.add('is-3d');
+
+    let D, XO, STEP, top, xs = [];
+    let cur = 0, mx = 0, my = 0, tmx = 0, tmy = 0, shownYear = null;
+
+    // rail buttons, one per chapter
+    const railBtns = chapters.map((ch, i) => {
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.innerHTML = `<span>${ch.dataset.year}</span><i></i>`;
+      b.addEventListener('click', () => scrollTo({ top: top + i * STEP, behavior: 'smooth' }));
+      li.appendChild(b); rail.appendChild(li);
+      return b;
+    });
+
+    // specks of dust along the corridor, for a sense of speed
+    const dust = document.createElement('div');
+    dust.className = 'dust';
+    world.appendChild(dust);
+
+    const layout = () => {
+      const mobile = innerWidth <= 860;
+      D = mobile ? 1500 : 1900;
+      XO = mobile ? 0 : innerWidth * .07;
+      STEP = innerHeight * 1.15;
+      journey.style.height = (n - 1) * STEP + innerHeight + 'px';
+      top = journey.getBoundingClientRect().top + scrollY;
+      xs = chapters.map(ch => (+ch.dataset.x || 0) * XO);
+      chapters.forEach((ch, i) => {
+        ch.style.transform = `translate3d(calc(-50% + ${xs[i]}px), -50%, ${-i * D}px)`;
+      });
+      dust.innerHTML = '';
+      const count = mobile ? 40 : 90;
+      for (let k = 0; k < count; k++) {
+        const s = document.createElement('i');
+        const x = (Math.random() - .5) * innerWidth * 1.6;
+        const y = (Math.random() - .5) * innerHeight * 1.2;
+        const z = 600 - Math.random() * ((n - 1) * D + 1400);
+        s.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+        dust.appendChild(s);
+      }
+    };
+    layout();
+    addEventListener('resize', layout);
+
+    // keyboard users: tabbing into a chapter flies the camera to it
+    chapters.forEach((ch, i) => ch.addEventListener('focusin', () => {
+      scrollTo({ top: top + i * STEP, behavior: 'smooth' });
+    }));
+
     if (finePointer) {
       addEventListener('pointermove', e => {
-        setTilt(e.clientX / innerWidth - .5, e.clientY / innerHeight - .5);
-      }, { passive: true });
-    } else {
-      addEventListener('scroll', () => {
-        const p = Math.min(scrollY / innerHeight, 1);
-        setTilt(p * .9, -p * .4);
+        tmx = (e.clientX / innerWidth - .5) * 5;
+        tmy = (e.clientY / innerHeight - .5) * -4;
       }, { passive: true });
     }
+
+    const frame = () => {
+      const p = clamp((scrollY - top) / ((n - 1) * STEP), 0, 1);
+      const target = p * (n - 1);
+      cur += (target - cur) * .085;
+      if (Math.abs(target - cur) < 1e-4) cur = target;
+      mx = lerp(mx, tmx, .06); my = lerp(my, tmy, .06);
+
+      // ease each leg so the camera slows down and lingers at every chapter
+      const k = Math.min(Math.floor(cur), n - 2);
+      const t = cur - k;
+      const e = t - Math.sin(2 * Math.PI * t) / (2 * Math.PI);
+      const c = k + e;
+      const camZ = c * D;
+      const camX = lerp(xs[k], xs[k + 1], e);
+      const bank = XO ? (xs[k + 1] - xs[k]) / XO * Math.sin(Math.PI * t) * -6 : 0;
+
+      world.style.transform =
+        `rotateX(${my.toFixed(3)}deg) rotateY(${(mx + bank).toFixed(3)}deg) translate3d(${(-camX).toFixed(1)}px, 0, ${camZ.toFixed(1)}px)`;
+      floor.style.setProperty('--fy', (camZ * .45 % 160).toFixed(1) + 'px');
+      hud.style.setProperty('--p', p.toFixed(4));
+      hint.classList.toggle('gone', p > .01);
+
+      chapters.forEach((ch, i) => {
+        const d = c - i;
+        if (d < -1.35 || d > .3) {
+          if (ch.style.visibility !== 'hidden') ch.style.visibility = 'hidden';
+          ch.classList.remove('focus');
+          return;
+        }
+        ch.style.visibility = '';
+        // chapters ahead stay faint until the camera gets close
+        const o = d <= 0 ? clamp((d + 1.35) / .95, 0, 1) ** 2 : clamp(1 - d / .3, 0, 1);
+        ch.style.opacity = o.toFixed(3);
+        ch.classList.toggle('focus', Math.abs(d) < .32);
+      });
+
+      const idx = clamp(Math.round(c), 0, n - 1);
+      const y = chapters[idx].dataset.year;
+      if (y !== shownYear) {
+        shownYear = y;
+        hudNow.textContent = y;
+        hudNow.classList.remove('flip'); void hudNow.offsetWidth; hudNow.classList.add('flip');
+        railBtns.forEach((b, i) => b.classList.toggle('on', i === idx));
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
   }
 
-  // tilt on any .tilt element (portrait) and the email
-  const tiltable = (el, target, prop, amt) => {
-    if (!finePointer || still) return;
-    el.addEventListener('pointermove', e => {
-      const r = el.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - .5;
-      const y = (e.clientY - r.top) / r.height - .5;
-      target.style.setProperty(prop[0], (x * amt).toFixed(2) + 'deg');
-      target.style.setProperty(prop[1], (-y * amt).toFixed(2) + 'deg');
-    });
-    el.addEventListener('pointerleave', () => {
-      target.style.setProperty(prop[0], '0deg');
-      target.style.setProperty(prop[1], '0deg');
-    });
-  };
-  document.querySelectorAll('.tilt').forEach(el => tiltable(el, el.querySelector('.frame'), ['--ty', '--tx'], 18));
-  const mail = document.querySelector('.mail');
-  tiltable(mail, mail, ['--my', '--mx'], 16);
-
-  // reveals, staggered within each parent
+  /* ---------------- reveals ---------------- */
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
       en.target.classList.add('in');
       io.unobserve(en.target);
     });
-  }, { rootMargin: '0px 0px -12% 0px' });
-  document.querySelectorAll('.reveal, .fold').forEach(el => {
-    const sibs = [...el.parentElement.children].filter(c => c.matches('.reveal, .fold'));
-    el.style.setProperty('--rd', (sibs.indexOf(el) % 6) * 0.08 + 's');
+  }, { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => {
+    const sibs = [...el.parentElement.children].filter(c => c.matches('.reveal'));
+    el.style.setProperty('--rd', (sibs.indexOf(el) % 6) * .07 + 's');
     io.observe(el);
   });
 
-  // timeline line draws as you scroll through it
-  const tl = document.querySelector('.timeline');
+  /* ---------------- email tilt ---------------- */
+  const mail = document.querySelector('.mail');
+  if (finePointer && !still) {
+    mail.addEventListener('pointermove', e => {
+      const r = mail.getBoundingClientRect();
+      mail.style.setProperty('--my', (((e.clientX - r.left) / r.width - .5) * 16).toFixed(2) + 'deg');
+      mail.style.setProperty('--mx', (-((e.clientY - r.top) / r.height - .5) * 16).toFixed(2) + 'deg');
+    });
+    mail.addEventListener('pointerleave', () => { mail.style.setProperty('--my', '0deg'); mail.style.setProperty('--mx', '0deg'); });
+  }
+
+  /* ---------------- header ---------------- */
   const nav = [...document.querySelectorAll('.nav a')];
   const sections = nav.map(a => document.querySelector(a.getAttribute('href')));
   const bar = document.querySelector('.bar');
   let lastY = scrollY;
-  const onScroll = () => {
-    const r = tl.getBoundingClientRect();
-    const p = Math.min(Math.max((innerHeight * .75 - r.top) / r.height, 0), 1);
-    tl.style.setProperty('--prog', p.toFixed(3));
-
+  addEventListener('scroll', () => {
     const mid = innerHeight * .4;
     sections.forEach((s, i) => {
       const b = s.getBoundingClientRect();
       nav[i].classList.toggle('on', b.top < mid && b.bottom > mid);
     });
+    bar.classList.toggle('hide', scrollY > lastY && scrollY > 200);
+    lastY = scrollY;
+  }, { passive: true });
 
-    const y = scrollY;
-    bar.classList.toggle('hide', y > lastY && y > 400);
-    lastY = y;
-  };
-  addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // cursor
+  /* ---------------- cursor ---------------- */
   if (finePointer && !still) {
     const cur = document.querySelector('.cursor');
     body.classList.add('has-cursor');
@@ -105,8 +180,8 @@
       cur.style.setProperty('--cx', e.clientX + 'px');
       cur.style.setProperty('--cy', e.clientY + 'px');
     }, { passive: true });
-    document.querySelectorAll('a, .project').forEach(el => {
-      el.addEventListener('pointerenter', () => cur.style.setProperty('--cs', el.matches('.project') ? 3.2 : 2.4));
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('pointerenter', () => cur.style.setProperty('--cs', 2.4));
       el.addEventListener('pointerleave', () => cur.style.setProperty('--cs', 1));
     });
   }
