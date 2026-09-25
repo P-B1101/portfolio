@@ -128,7 +128,11 @@
       "name": "Vehicle Tracker",
       "desc": "ردیابی زنده، بازپخش مسیر و قفل درها از راه دور",
       "year": "۱۴۰۴",
-      "platforms": [],
+      "platforms": [
+        "android",
+        "ios",
+        "web"
+      ],
       "freelance": true
     },
     {
