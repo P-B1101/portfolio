@@ -14,18 +14,30 @@ The language comes from `?lang=fa` / `?lang=en`, then the visitor's last choice,
 
 Run it locally with any static server, e.g. `python3 -m http.server`, then open http://localhost:8000.
 
-Deploy with `firebase deploy --only hosting`.
+## Update, version and deploy
 
-## Versions
-
-The current version is in `VERSION` and shows in the footer. To release a new one:
+`deploy.ps1` does it all in one go on Windows. It pulls `main`, bumps the version, commits, tags, pushes, and uploads the site to Cloudflare Pages with wrangler.
 
 ```
-node tools/version.mjs 2.0.1
-git commit -am "v2.0.1" && git tag v2.0.1 && git push --follow-tags
+.\deploy.ps1                  # 2.0.0 -> 2.0.1
+.\deploy.ps1 -Bump minor      # 2.0.0 -> 2.1.0
+.\deploy.ps1 -Bump major      # 2.0.0 -> 3.0.0
+.\deploy.ps1 -Version 3.0.0   # set an exact version
+.\deploy.ps1 -BuildCv         # rebuild the CV PDFs first
+.\deploy.ps1 -NoBump          # redeploy the current version
+.\deploy.ps1 -NoDeploy        # version and push only
 ```
 
-The script also updates the `?v=` keys on the CSS, JS, font and CV links, so returning visitors get the new files instead of cached ones.
+The first time, log in and create the Pages project:
+
+```
+wrangler login
+wrangler pages project create b1101-portfolio --production-branch main
+```
+
+Only the site files go up (`index.html`, `css`, `js`, `img`, `assets`, `cv/pdf`). The version is in `VERSION` and shows in the footer. `tools/version.mjs` also updates the `?v=` keys on the CSS, JS, font and CV links, so returning visitors get the new files instead of cached ones.
+
+Firebase still works too: `firebase deploy --only hosting`.
 
 ## CV PDFs
 

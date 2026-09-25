@@ -9,6 +9,7 @@
       "**/node_modules/**",
       "VERSION",
       "tools/**",
+      "deploy.ps1",
       "cv/build.mjs",
       "cv/content/**",
       "cv/icons/**"

@@ -2,3 +2,4 @@
 .firebase/
 node_modules/
 cv/pdf/.*.html
+.dist/
