@@ -9,12 +9,11 @@
       "**/node_modules/**",
       "cv/build.mjs",
       "cv/content/**",
-      "cv/fonts/**",
       "cv/icons/**"
     ],
     "headers": [
       {
-        "source": "**/*.@(css|js|jpg|webp|png)",
+        "source": "**/*.@(css|js|jpg|webp|png|woff2)",
         "headers": [
           {
             "key": "Cache-Control",

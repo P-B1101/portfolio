@@ -16,8 +16,8 @@ catch { ({ chromium } = require(join(execSync('npm root -g').toString().trim(), 
 const read = p => readFileSync(join(here, p), 'utf8');
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const font = (name, file, weight = '100 900', stretch = '100%') =>
-  `@font-face{font-family:"${name}";src:url(data:font/woff2;base64,${readFileSync(join(here, 'fonts', file)).toString('base64')}) format("woff2");font-weight:${weight};font-stretch:${stretch};}`;
-const fonts = font('Archivo', 'archivo.woff2', '100 900', '62% 125%') + font('JBM', 'jetbrains-mono.woff2') + font('Vazirmatn', 'vazirmatn.woff2');
+  `@font-face{font-family:"${name}";src:url(data:font/woff2;base64,${readFileSync(join(here, '..', 'assets', 'fonts', file)).toString('base64')}) format("woff2");font-weight:${weight};font-stretch:${stretch};}`;
+const fonts = font('Archivo', 'archivo-latin.woff2', '100 900', '62% 125%') + font('JBM', 'jetbrains-mono-latin.woff2') + font('Vazirmatn', 'vazirmatn-arabic.woff2');
 
 // inline an svg icon, forced to currentColor
 const icon = name => {
