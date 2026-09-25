@@ -11,3 +11,14 @@ Plain HTML, CSS and a little JavaScript. No build step.
 Run it locally with any static server, e.g. `python3 -m http.server`, then open http://localhost:8000.
 
 Deploy with `firebase deploy --only hosting`.
+
+## CV PDFs
+
+`cv/pdf/` holds the downloadable CVs (professional and designed, English and Farsi).
+They're generated from `cv/content/en.json` and `cv/content/fa.json`:
+
+```
+node cv/build.mjs
+```
+
+This needs Playwright with Chromium (`npm i -g playwright && npx playwright install chromium`).

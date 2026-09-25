@@ -172,6 +172,13 @@
     lastY = scrollY;
   }, { passive: true });
 
+  /* ---------------- CV menu: close on outside click or Escape ---------------- */
+  const cvMenu = document.querySelector('.cv-menu');
+  if (cvMenu) {
+    document.addEventListener('click', e => { if (!cvMenu.contains(e.target)) cvMenu.open = false; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cvMenu.open = false; });
+  }
+
   /* ---------------- cursor ---------------- */
   if (finePointer && !still) {
     const cur = document.querySelector('.cursor');

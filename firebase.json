@@ -6,12 +6,21 @@
       "README.md",
       "LICENSE",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "cv/build.mjs",
+      "cv/content/**",
+      "cv/fonts/**",
+      "cv/icons/**"
     ],
     "headers": [
       {
         "source": "**/*.@(css|js|jpg|webp|png)",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
+          }
+        ]
       }
     ]
   }

@@ -1,0 +1,178 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "Pedram Mohammad Ali Pour",
+  "role": "Flutter Developer",
+  "summary": "Flutter developer with nine years of experience building mobile and web apps. I started on Android with Java in 2017 and moved to Flutter, where I've shipped apps to Google Play, the App Store and the web, including a mobile bank for Shahr Bank. I work with Clean Architecture, Bloc and dependency injection.",
+  "contact": {
+    "email": "pedramxiii@gmail.com",
+    "linkedin": "linkedin.com/in/pedram-mohammad-ali-pour-b44721141",
+    "github": "github.com/P-B1101",
+    "website": "b1101-portfolio.web.app"
+  },
+  "labels": {
+    "summary": "Profile",
+    "experience": "Experience",
+    "projects": "Selected projects",
+    "skills": "Skills",
+    "tools": "Tools",
+    "education": "Education",
+    "contact": "Contact",
+    "present": "Present",
+    "more": "The full story, year by year:",
+    "internal": "Internal",
+    "platforms": {
+      "android": "Android",
+      "ios": "iOS",
+      "web": "Web"
+    }
+  },
+  "experience": [
+    {
+      "company": "Dotin",
+      "title": "Flutter Developer",
+      "from": "May 2024",
+      "to": null
+    },
+    {
+      "company": "Negah Holding",
+      "title": "Flutter Developer",
+      "from": "Jul 2023",
+      "to": "May 2024"
+    },
+    {
+      "company": "City Development & Innovation",
+      "title": "Flutter Developer",
+      "from": "Apr 2022",
+      "to": "Aug 2023",
+      "notes": [
+        "Built HamrahShahr Plus, the mobile bank for Shahr Bank, and its back office."
+      ]
+    },
+    {
+      "company": "Paratech Co",
+      "title": "Android & Flutter Developer",
+      "from": "Aug 2017",
+      "to": "Apr 2022",
+      "notes": [
+        "Started as an Android developer in Java and moved to Flutter."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "HamrahShahr Plus",
+      "desc": "Mobile bank for Shahr Bank",
+      "year": "2022",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    {
+      "name": "HamrahShahr Backoffice",
+      "desc": "Back office for the Shahr Bank app",
+      "year": "2022",
+      "platforms": [
+        "web"
+      ],
+      "internal": true
+    },
+    {
+      "name": "Habitomic",
+      "desc": "Personal daily planner",
+      "year": "2021",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    {
+      "name": "iClassifier",
+      "desc": "Web app for classifying cows",
+      "year": "2022",
+      "platforms": [
+        "web"
+      ]
+    },
+    {
+      "name": "Vekalati",
+      "desc": "Web app for delegating deposits",
+      "year": "2023",
+      "platforms": [
+        "web"
+      ],
+      "internal": true
+    },
+    {
+      "name": "Hamamooz",
+      "desc": "Self-learning app for education and finance",
+      "year": "2018",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Flutter",
+      "level": 3
+    },
+    {
+      "name": "Dart",
+      "level": 3
+    },
+    {
+      "name": "Flutter Web",
+      "level": 3
+    },
+    {
+      "name": "Clean Architecture",
+      "level": 3
+    },
+    {
+      "name": "Bloc / flutter_bloc",
+      "level": 3
+    },
+    {
+      "name": "Provider",
+      "level": 3
+    },
+    {
+      "name": "Dependency Injection",
+      "level": 3
+    },
+    {
+      "name": "OOP",
+      "level": 3
+    },
+    {
+      "name": "RESTful APIs",
+      "level": 3
+    },
+    {
+      "name": "Java",
+      "level": 3
+    },
+    {
+      "name": "Android",
+      "level": 2
+    },
+    {
+      "name": "Test-driven development",
+      "level": 2
+    }
+  ],
+  "tools": [
+    "Android Studio",
+    "VS Code",
+    "Git"
+  ],
+  "education": {
+    "field": "Computer Hardware Engineering",
+    "school": "OFU College",
+    "from": "2012",
+    "to": "2017"
+  }
+}
