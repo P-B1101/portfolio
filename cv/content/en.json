@@ -2,8 +2,8 @@
   "lang": "en",
   "dir": "ltr",
   "name": "Pedram Mohammad Ali Pour",
-  "role": "Flutter Developer",
-  "summary": "Flutter developer with nine years of experience building mobile and web apps. I started on Android with Java in 2017 and moved to Flutter, where I've shipped apps to Google Play, the App Store and the web, including a mobile bank for Shahr Bank. I work with Clean Architecture, Bloc and dependency injection.",
+  "role": "Flutter Software Engineer",
+  "summary": "I'm a mobile developer with over nine years of experience building Android and Flutter apps. I started with native Android and have focused on Flutter since 2019, delivering cross-platform apps with clean architecture and solid performance. At Dotin I work on financial and ERP apps, and freelance work has sharpened how I manage time, talk with clients and ship production-ready code on my own.",
   "contact": {
     "email": "pedramxiii@gmail.com",
     "linkedin": "linkedin.com/in/pedram-mohammad-ali-pour-b44721141",
@@ -30,32 +30,40 @@
   "experience": [
     {
       "company": "Dotin",
-      "title": "Flutter Developer",
+      "title": "Flutter Software Engineer",
       "from": "May 2024",
-      "to": null
+      "to": null,
+      "notes": [
+        "Works on the Flutter Mobile Runner, the front end of an app generation platform.",
+        "Builds and maintains core features in several mobile projects, with a focus on performance, scalability and smooth UX."
+      ]
     },
     {
       "company": "Negah Holding",
-      "title": "Flutter Developer",
+      "title": "Flutter Team Lead",
       "from": "Jul 2023",
-      "to": "May 2024"
+      "to": "May 2024",
+      "notes": [
+        "Led the Flutter team building a digital wallet with credit-based payments, and contributed to a supply chain finance (SCF) app."
+      ]
     },
     {
       "company": "City Development & Innovation",
-      "title": "Flutter Developer",
+      "title": "Flutter Developer → Team Lead",
       "from": "Apr 2022",
       "to": "Jul 2023",
       "notes": [
-        "Built HamrahShahr Plus, the mobile bank for Shahr Bank, and its back office."
+        "Led development of HamrahShahr Plus, the mobile bank for Shahr Bank, its back office and several ERP apps.",
+        "Ran the Flutter team's process, code quality and app performance."
       ]
     },
     {
       "company": "Paratech Co",
-      "title": "Android & Flutter Developer",
+      "title": "Android Developer",
       "from": "Aug 2017",
       "to": "Apr 2022",
       "notes": [
-        "Started as an Android developer in Java and moved to Flutter."
+        "The only mobile developer, taking apps from UI design to release; moved to Flutter after two years."
       ]
     }
   ],
@@ -162,6 +170,14 @@
     {
       "name": "Test-driven development",
       "level": 2
+    },
+    {
+      "name": "Software Architecture (SOLID)",
+      "level": 3
+    },
+    {
+      "name": "Firebase",
+      "level": 3
     }
   ],
   "tools": [
@@ -171,7 +187,7 @@
   ],
   "education": {
     "field": "Computer Hardware Engineering",
-    "school": "OFU College",
+    "school": "University of Science and Technology, Babol",
     "from": "2012",
     "to": "2017"
   }
