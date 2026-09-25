@@ -66,7 +66,8 @@ h2 { font-size: 9pt; font-weight: 700; letter-spacing: ${c.dir === 'rtl' ? '0' :
 .proj b { font-weight: 700; }
 .proj .meta { color: #555; }
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10mm; }
-.skills { columns: 2; column-gap: 10mm; }
+/* Farsi skill names are longer, so they get one column */
+.skills { columns: ${c.dir === 'rtl' ? 1 : 2}; column-gap: 10mm; }
 .skills li { break-inside: avoid; }
 </style></head><body><div class="page">
 <header>

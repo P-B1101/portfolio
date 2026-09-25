@@ -35,9 +35,7 @@ wrangler login
 wrangler pages project create b1101-portfolio --production-branch main
 ```
 
-Only the site files go up (`index.html`, `css`, `js`, `img`, `assets`, `cv/pdf`). The version is in `VERSION` and shows in the footer. `tools/version.mjs` also updates the `?v=` keys on the CSS, JS, font and CV links, so returning visitors get the new files instead of cached ones.
-
-Firebase still works too: `firebase deploy --only hosting`.
+Only the site files go up (`index.html`, `css`, `js`, `img`, `assets`, `cv/pdf`). The version is in `VERSION` and shows in the footer. `tools/version.mjs` also updates the `?v=` keys on the CSS, JS, font and CV links, so returning visitors get the new files instead of cached ones. Cache rules for Cloudflare are in `_headers`.
 
 ## CV PDFs
 
