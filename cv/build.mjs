@@ -104,7 +104,7 @@ ${base(c)}
 .mono { font-family: "JBM", monospace; }
 aside { background: var(--ink); color: var(--paper); padding: 14mm 8mm 10mm; display: flex; flex-direction: column; gap: 7mm; position: relative; overflow: hidden; }
 aside::after { content: "P"; position: absolute; bottom: -18mm; inset-inline-end: -8mm; font-size: 90mm; font-weight: 900; line-height: 1; color: transparent; -webkit-text-stroke: .6pt rgba(255,185,0,.22); font-family: "Archivo"; }
-.ph { width: 40mm; height: 40mm; border-radius: 50%; border: 1.6mm solid var(--amber); background: url(${photo}) center 25% / cover; filter: grayscale(1) contrast(1.05); margin-inline: auto; box-shadow: 2mm 2mm 0 rgba(255,185,0,.25); }
+.ph { width: 40mm; height: 40mm; border-radius: 50%; border: 1.6mm solid var(--amber); background: url(${photo}) 54% 0% / 150%; filter: grayscale(1) contrast(1.05); margin-inline: auto; box-shadow: 2mm 2mm 0 rgba(255,185,0,.25); }
 aside h2 { font-size: 8pt; font-weight: 700; color: var(--amber); letter-spacing: ${c.dir === 'rtl' ? '0' : '.14em'}; text-transform: uppercase; margin-bottom: 2.5mm; display: flex; align-items: center; gap: 2mm; }
 aside h2::after { content: ""; flex: 1; height: .5pt; background: rgba(255,185,0,.35); }
 .ct li { display: flex; align-items: center; gap: 2.5mm; margin-bottom: 2mm; font-size: 7.6pt; word-break: break-all; }

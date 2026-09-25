@@ -232,7 +232,7 @@ a { color: inherit; }
 .photo { margin: 0; width: min(340px, 70vw); position: relative; }
 .photo::before { content: ""; position: absolute; inset: 0; background: var(--amber); border-radius: 8px; transform: translate3d(20px, 20px, -60px); }
 .photo::after { content: ""; position: absolute; inset: 0; border: 1.5px solid var(--paper); border-radius: 8px; transform: translate3d(-16px, -16px, 50px); }
-.photo img { position: relative; border-radius: 8px; filter: grayscale(1) contrast(1.08); transition: filter .8s var(--ease-out); }
+.photo img { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 52% 50%; border-radius: 8px; filter: grayscale(1) contrast(1.08); transition: filter .8s var(--ease-out); }
 .photo:hover img { filter: none; }
 
 /* hardware die */
