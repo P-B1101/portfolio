@@ -13,24 +13,36 @@
   <link rel="apple-touch-icon" href="img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@300..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    // pick the language before first paint so Farsi never flashes in left-to-right
+    (function () {
+      var q = new URLSearchParams(location.search).get('lang'), s = null;
+      try { s = localStorage.getItem('lang'); } catch (e) {}
+      var l = q || s || ((navigator.languages || [navigator.language]).some(function (x) { return /^fa/i.test(x); }) ? 'fa' : 'en');
+      l = l === 'fa' ? 'fa' : 'en';
+      document.documentElement.lang = l;
+      document.documentElement.dir = l === 'fa' ? 'rtl' : 'ltr';
+    })();
+  </script>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
   <div class="cursor" aria-hidden="true"></div>
 
   <header class="bar">
-    <a class="mark" href="#top" aria-label="Back to the start"><span>P</span></a>
+    <a class="mark" href="#top" aria-label="Back to the start" data-i18n-attr="aria-label:top"><span>P</span></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#story"><i>01</i>Story</a>
-      <a href="#stack"><i>02</i>Stack</a>
-      <a href="#contact"><i>03</i>Contact</a>
+      <a href="#story" data-i18n="nav.story"><i>01</i>Story</a>
+      <a href="#stack" data-i18n="nav.stack"><i>02</i>Stack</a>
+      <a href="#contact" data-i18n="nav.contact"><i>03</i>Contact</a>
+      <a class="lang-switch" href="?lang=fa" hreflang="fa" lang="fa" data-i18n="lang" data-i18n-href="lang.href">فا</a>
       <details class="cv-menu">
-        <summary>CV <span aria-hidden="true">↓</span></summary>
+        <summary data-i18n="cv">CV <span aria-hidden="true">↓</span></summary>
         <div class="cv-pop">
-          <a href="cv/pdf/pedram-cv-professional-en.pdf" download><b>Professional</b><small>Text only, one page</small></a>
-          <a href="cv/pdf/pedram-cv-designed-en.pdf" download><b>Designed</b><small>Colour and icons</small></a>
+          <a href="cv/pdf/pedram-cv-professional-en.pdf" download data-i18n="cv.pro" data-i18n-href="cv.pro.href"><b>Professional</b><small>Text only, one page</small></a>
+          <a href="cv/pdf/pedram-cv-designed-en.pdf" download data-i18n="cv.fancy" data-i18n-href="cv.fancy.href"><b>Designed</b><small>Colour and icons</small></a>
         </div>
       </details>
     </nav>
@@ -42,49 +54,49 @@
       With JS the viewport sticks, the chapters are laid down a 3D corridor,
       and scrolling flies the camera through them.
     -->
-    <section class="journey" id="story" aria-label="The story so far">
+    <section class="journey" id="story" aria-label="The story so far" data-i18n-attr="aria-label:story">
       <div class="viewport">
         <div class="floor" aria-hidden="true"></div>
         <div class="world">
           <!-- 0 · intro -->
-          <article class="ch intro-ch" data-year="Hi" data-x="0">
+          <article class="ch intro-ch" data-year="Hi" data-x="0" data-i18n-year="y0">
             <div class="ghost" aria-hidden="true">P</div>
             <div class="card">
-              <p class="mono kicker"><span class="dot"></span>Flutter developer</p>
-              <h1 class="name">
+              <p class="mono kicker" data-i18n="intro.kicker"><span class="dot"></span>Flutter developer</p>
+              <h1 class="name" data-i18n="intro.name">
                 <span class="line"><span class="word">Pedram</span></span>
                 <span class="line small"><span class="word">Mohammad Ali Pour</span></span>
               </h1>
-              <p class="lede">This isn't a CV. It's the road from a hardware degree to shipping apps, year by year. <em>Scroll to travel through it.</em></p>
+              <p class="lede" data-i18n="intro.lede">This isn't a CV. It's the road from a hardware degree to shipping apps, year by year. <em>Scroll to travel through it.</em></p>
             </div>
             <figure class="prop photo">
               <picture>
                 <source srcset="img/pedram.webp" type="image/webp">
-                <img src="img/pedram.jpg" alt="Portrait of Pedram" width="720" height="900">
+                <img src="img/pedram.jpg" alt="Portrait of Pedram" data-i18n-attr="alt:photo" width="720" height="900">
               </picture>
             </figure>
           </article>
 
           <!-- 1 · 2012 -->
-          <article class="ch" data-year="2012" data-x="-1">
-            <div class="ghost" aria-hidden="true">2012</div>
+          <article class="ch" data-year="2012" data-i18n-year="y1" data-x="-1">
+            <div class="ghost" aria-hidden="true" data-i18n="c1.ghost">2012</div>
             <div class="card">
-              <p class="mono kicker">Chapter 01 · 2012</p>
-              <h2>It starts with hardware.</h2>
-              <p>I enrol at OFU College to study Computer Hardware Engineering. Five years of learning what sits underneath the software.</p>
-              <ul class="tags mono"><li>OFU College</li><li>Computer Hardware Eng.</li></ul>
+              <p class="mono kicker" data-i18n="c1.kicker">Chapter 01 · 2012</p>
+              <h2 data-i18n="c1.h2">It starts with hardware.</h2>
+              <p data-i18n="c1.p">I enrol at OFU College to study Computer Hardware Engineering. Five years of learning what sits underneath the software.</p>
+              <ul class="tags mono" data-i18n="c1.tags"><li>OFU College</li><li>Computer Hardware Eng.</li></ul>
             </div>
             <div class="prop cpu" aria-hidden="true"><div class="die"><span>P</span></div></div>
           </article>
 
           <!-- 2 · 2017 -->
-          <article class="ch" data-year="2017" data-x="1">
-            <div class="ghost" aria-hidden="true">2017</div>
+          <article class="ch" data-year="2017" data-i18n-year="y2" data-x="1">
+            <div class="ghost" aria-hidden="true" data-i18n="c2.ghost">2017</div>
             <div class="card">
-              <p class="mono kicker">Chapter 02 · 2017</p>
-              <h2>April: degree done.<br>August: first job.</h2>
-              <p>I join Paratech Co as an Android developer, writing Java. I stay almost five years, and along the way the title becomes Android &amp; Flutter Developer.</p>
-              <ul class="tags mono"><li>Paratech Co</li><li>Java</li><li>Android</li></ul>
+              <p class="mono kicker" data-i18n="c2.kicker">Chapter 02 · 2017</p>
+              <h2 data-i18n="c2.h2">April: degree done.<br>August: first job.</h2>
+              <p data-i18n="c2.p">I join Paratech Co as an Android developer, writing Java. I stay almost five years, and along the way the title becomes Android &amp; Flutter Developer.</p>
+              <ul class="tags mono" data-i18n="c2.tags"><li>Paratech Co</li><li>Java</li><li>Android</li></ul>
             </div>
             <div class="prop code" aria-hidden="true">
               <div class="win-bar"><i></i><i></i><i></i><span class="mono">MainActivity.java</span></div>
@@ -101,13 +113,13 @@
           </article>
 
           <!-- 3 · 2018 -->
-          <article class="ch" data-year="2018" data-x="-1">
-            <div class="ghost" aria-hidden="true">2018</div>
+          <article class="ch" data-year="2018" data-i18n-year="y3" data-x="-1">
+            <div class="ghost" aria-hidden="true" data-i18n="c3.ghost">2018</div>
             <div class="card">
-              <p class="mono kicker">Chapter 03 · 2018</p>
-              <h2>Hamamooz ships.</h2>
-              <p>A self-learning app about education and money, released on both Android and iOS.</p>
-              <div class="links">
+              <p class="mono kicker" data-i18n="c3.kicker">Chapter 03 · 2018</p>
+              <h2 data-i18n="c3.h2">Hamamooz ships.</h2>
+              <p data-i18n="c3.p">A self-learning app about education and money, released on both Android and iOS.</p>
+              <div class="links" data-i18n="c3.links">
                 <a href="https://hamamooz.com/android/Hamamoozv3.apk" target="_blank" rel="noopener">Android</a>
                 <a href="https://anardoni.com/ios/app/xeJrXlAlW" target="_blank" rel="noopener">iOS</a>
               </div>
@@ -115,7 +127,7 @@
             <div class="prop device" aria-hidden="true">
               <div class="mphone">
                 <div class="mscreen">
-                  <b class="app-title">Hamamooz</b>
+                  <b class="app-title" data-i18n="c3.app">Hamamooz</b>
                   <div class="sk hero-sk"></div>
                   <div class="sk-row"><i></i><span></span></div>
                   <div class="sk-row"><i></i><span></span></div>
@@ -127,13 +139,13 @@
           </article>
 
           <!-- 4 · 2021 -->
-          <article class="ch" data-year="2021" data-x="1">
-            <div class="ghost" aria-hidden="true">2021</div>
+          <article class="ch" data-year="2021" data-i18n-year="y4" data-x="1">
+            <div class="ghost" aria-hidden="true" data-i18n="c4.ghost">2021</div>
             <div class="card">
-              <p class="mono kicker">Chapter 04 · 2021</p>
-              <h2>Habitomic.</h2>
-              <p>A personal daily planner. It's live on Google Play and the App Store.</p>
-              <div class="links">
+              <p class="mono kicker" data-i18n="c4.kicker">Chapter 04 · 2021</p>
+              <h2 data-i18n="c4.h2">Habitomic.</h2>
+              <p data-i18n="c4.p">A personal daily planner. It's live on Google Play and the App Store.</p>
+              <div class="links" data-i18n="c4.links">
                 <a href="https://play.google.com/store/apps/details?id=com.habitomic.android" target="_blank" rel="noopener">Android</a>
                 <a href="https://apps.apple.com/ca/app/habitomic/id1609261995" target="_blank" rel="noopener">iOS</a>
               </div>
@@ -142,8 +154,8 @@
               <div class="mphone">
                 <div class="mscreen habit">
                   <div class="app-head">
-                    <small class="mono">today</small>
-                    <b>Your day</b>
+                    <small class="mono" data-i18n="mock.today">today</small>
+                    <b data-i18n="mock.day">Your day</b>
                     <div class="ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><circle class="fill" cx="18" cy="18" r="15"/></svg></div>
                   </div>
                   <ul class="habits">
@@ -163,13 +175,13 @@
           </article>
 
           <!-- 5 · 2022 bank -->
-          <article class="ch" data-year="2022" data-x="-1">
-            <div class="ghost" aria-hidden="true">2022</div>
+          <article class="ch" data-year="2022" data-i18n-year="y5" data-x="-1">
+            <div class="ghost" aria-hidden="true" data-i18n="c5.ghost">2022</div>
             <div class="card">
-              <p class="mono kicker">Chapter 05 · 2022</p>
-              <h2>Then a bank.</h2>
-              <p>In April I move to City Development &amp; Innovation. We build HamrahShahr Plus, the mobile bank for Shahr Bank, and the back office that runs behind it.</p>
-              <div class="links">
+              <p class="mono kicker" data-i18n="c5.kicker">Chapter 05 · 2022</p>
+              <h2 data-i18n="c5.h2">Then a bank.</h2>
+              <p data-i18n="c5.p">In April I move to City Development &amp; Innovation. We build HamrahShahr Plus, the mobile bank for Shahr Bank, and the back office that runs behind it.</p>
+              <div class="links" data-i18n="c5.links">
                 <a href="https://cafebazaar.ir/app/com.citydi.hplus" target="_blank" rel="noopener">Android</a>
                 <a href="https://app.appleapps.ir/id/1062990/" target="_blank" rel="noopener">iOS</a>
                 <span class="private mono">back office: internal</span>
@@ -178,7 +190,7 @@
             <div class="prop device bank" aria-hidden="true">
               <div class="mphone">
                 <div class="mscreen">
-                  <b class="app-title">HamrahShahr</b>
+                  <b class="app-title" data-i18n="c5.app">HamrahShahr</b>
                   <div class="bcard"><i class="chipset"></i><span class="mono">•••• •••• •••• 1101</span></div>
                   <div class="sk-row"><i></i><span></span></div>
                   <div class="sk-row"><i></i><span></span></div>
@@ -189,13 +201,13 @@
           </article>
 
           <!-- 6 · 2022 web -->
-          <article class="ch" data-year="2022" data-x="1">
-            <div class="ghost" aria-hidden="true">web</div>
+          <article class="ch" data-year="2022" data-i18n-year="y6" data-x="1">
+            <div class="ghost" aria-hidden="true" data-i18n="c6.ghost">web</div>
             <div class="card">
-              <p class="mono kicker">Chapter 06 · 2022</p>
-              <h2>Flutter, in the browser.</h2>
-              <p>Same year, a different screen: iClassifier, a web app for classifying cows. Flutter Web becomes part of the job.</p>
-              <div class="links"><a href="https://app.iclassifier.ca/" target="_blank" rel="noopener">Web</a></div>
+              <p class="mono kicker" data-i18n="c6.kicker">Chapter 06 · 2022</p>
+              <h2 data-i18n="c6.h2">Flutter, in the browser.</h2>
+              <p data-i18n="c6.p">Same year, a different screen: iClassifier, a web app for classifying cows. Flutter Web becomes part of the job.</p>
+              <div class="links" data-i18n="c6.links"><a href="https://app.iclassifier.ca/" target="_blank" rel="noopener">Web</a></div>
             </div>
             <div class="prop browser" aria-hidden="true">
               <div class="win-bar"><i></i><i></i><i></i><span class="url mono">app.iclassifier.ca</span></div>
@@ -207,13 +219,13 @@
           </article>
 
           <!-- 7 · 2023 -->
-          <article class="ch" data-year="2023" data-x="-1">
-            <div class="ghost" aria-hidden="true">2023</div>
+          <article class="ch" data-year="2023" data-i18n-year="y7" data-x="-1">
+            <div class="ghost" aria-hidden="true" data-i18n="c7.ghost">2023</div>
             <div class="card">
-              <p class="mono kicker">Chapter 07 · 2023</p>
-              <h2>Vekalati, and a new team.</h2>
-              <p>In April, Vekalati: a web app for delegating deposits. In July I join Negah Holding as a Flutter developer.</p>
-              <ul class="tags mono"><li>Vekalati</li><li>Negah Holding</li><li>Flutter Web</li></ul>
+              <p class="mono kicker" data-i18n="c7.kicker">Chapter 07 · 2023</p>
+              <h2 data-i18n="c7.h2">Vekalati, and a new team.</h2>
+              <p data-i18n="c7.p">In April, Vekalati: a web app for delegating deposits. In July I join Negah Holding as a Flutter developer.</p>
+              <ul class="tags mono" data-i18n="c7.tags"><li>Vekalati</li><li>Negah Holding</li><li>Flutter Web</li></ul>
             </div>
             <div class="prop browser alt" aria-hidden="true">
               <div class="win-bar"><i></i><i></i><i></i><span class="url mono">vekalati</span></div>
@@ -225,29 +237,29 @@
           </article>
 
           <!-- 8 · 2024 -->
-          <article class="ch" data-year="2024" data-x="1">
-            <div class="ghost" aria-hidden="true">2024</div>
+          <article class="ch" data-year="2024" data-i18n-year="y8" data-x="1">
+            <div class="ghost" aria-hidden="true" data-i18n="c8.ghost">2024</div>
             <div class="card">
-              <p class="mono kicker">Chapter 08 · 2024 → now</p>
-              <h2>Dotin.</h2>
-              <p>May 2024. I join Dotin as a Flutter developer, and that's where you'll find me today.</p>
-              <ul class="tags mono"><li class="live">Current</li><li>Dotin</li><li>Flutter</li></ul>
+              <p class="mono kicker" data-i18n="c8.kicker">Chapter 08 · 2024 → now</p>
+              <h2 data-i18n="c8.h2">Dotin.</h2>
+              <p data-i18n="c8.p">May 2024. I join Dotin as a Flutter developer, and that's where you'll find me today.</p>
+              <ul class="tags mono" data-i18n="c8.tags"><li class="live">Current</li><li>Dotin</li><li>Flutter</li></ul>
             </div>
             <div class="prop coin" aria-hidden="true">
-              <div class="disc"><span class="face f">now</span><span class="face b">P</span></div>
+              <div class="disc"><span class="face f" data-i18n="coin">now</span><span class="face b">P</span></div>
             </div>
           </article>
 
           <!-- 9 · so far -->
-          <article class="ch outro-ch" data-year="Now" data-x="0">
+          <article class="ch outro-ch" data-year="Now" data-x="0" data-i18n-year="y9">
             <div class="card">
-              <p class="mono kicker">So far</p>
+              <p class="mono kicker" data-i18n="outro.kicker">So far</p>
               <dl class="facts">
-                <div><dt class="mono">years shipping</dt><dd class="since">9</dd></div>
-                <div><dt class="mono">companies</dt><dd>4</dd></div>
-                <div><dt class="mono">products</dt><dd>6</dd></div>
+                <div><dt class="mono" data-i18n="outro.years">years shipping</dt><dd class="since">9</dd></div>
+                <div><dt class="mono" data-i18n="outro.companies">companies</dt><dd class="num">4</dd></div>
+                <div><dt class="mono" data-i18n="outro.products">products</dt><dd class="num">6</dd></div>
               </dl>
-              <p class="lede">Making every app extraordinary. Still working on it.</p>
+              <p class="lede" data-i18n="outro.lede">Making every app extraordinary. Still working on it.</p>
             </div>
           </article>
         </div>
@@ -256,13 +268,13 @@
           <div class="hud-year"><span class="hud-now">Hi</span></div>
           <ol class="rail"></ol>
         </div>
-        <div class="hint mono" aria-hidden="true"><span>scroll</span><i></i></div>
+        <div class="hint mono" aria-hidden="true"><span data-i18n="hint">scroll</span><i></i></div>
       </div>
     </section>
 
     <!-- STACK -->
     <section class="stack" id="stack">
-      <h2 class="section-title big reveal"><span class="mono">02</span>Stack</h2>
+      <h2 class="section-title big reveal" data-i18n="stack.title"><span class="mono">02</span>Stack</h2>
       <div class="stack-grid">
         <div class="orbit-wrap" aria-hidden="true">
           <div class="orbit">
@@ -274,7 +286,7 @@
           <div class="core"><span>P</span></div>
         </div>
         <div class="skills">
-          <ul class="skill-list">
+          <ul class="skill-list" data-i18n-list="skills">
             <li class="reveal"><span>Flutter</span><b class="lvl" data-l="3"></b></li>
             <li class="reveal"><span>Dart</span><b class="lvl" data-l="3"></b></li>
             <li class="reveal"><span>Clean Architecture</span><b class="lvl" data-l="3"></b></li>
@@ -288,36 +300,37 @@
             <li class="reveal"><span>Android development</span><b class="lvl" data-l="2"></b></li>
             <li class="reveal"><span>Test-driven development</span><b class="lvl" data-l="2"></b></li>
           </ul>
-          <p class="tools mono reveal">Daily tools: <span>Android Studio</span> <span>VS Code</span> <span>Git</span></p>
+          <p class="tools mono reveal" data-i18n="tools">Daily tools: <span>Android Studio</span> <span>VS Code</span> <span>Git</span></p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-      <p class="mono kicker dark reveal">03 · Contact</p>
-      <h2 class="reveal">Next chapter?<br>Write to me.</h2>
+      <p class="mono kicker dark reveal" data-i18n="contact.kicker">03 · Contact</p>
+      <h2 class="reveal" data-i18n="contact.h2">Next chapter?<br>Write to me.</h2>
       <a class="mail reveal" href="mailto:pedramxiii@gmail.com">pedramxiii@gmail.com</a>
       <div class="cv-cards reveal">
-        <a class="cv-card" href="cv/pdf/pedram-cv-professional-en.pdf" download>
+        <a class="cv-card" href="cv/pdf/pedram-cv-professional-en.pdf" download data-i18n="cvcard.pro" data-i18n-href="cv.pro.href">
           <span class="mono">pdf · a4</span><b>Professional CV</b><small>Text only, easy to scan</small><i aria-hidden="true">↓</i>
         </a>
-        <a class="cv-card fancy" href="cv/pdf/pedram-cv-designed-en.pdf" download>
+        <a class="cv-card fancy" href="cv/pdf/pedram-cv-designed-en.pdf" download data-i18n="cvcard.fancy" data-i18n-href="cv.fancy.href">
           <span class="mono">pdf · a4</span><b>Designed CV</b><small>Colour, icons, photo</small><i aria-hidden="true">↓</i>
         </a>
       </div>
       <ul class="socials reveal">
-        <li><a href="http://linkedin.com/in/pedram-mohammad-ali-pour-b44721141" target="_blank" rel="noopener">LinkedIn <i>↗</i></a></li>
-        <li><a href="https://github.com/P-B1101" target="_blank" rel="noopener">GitHub <i>↗</i></a></li>
+        <li><a href="http://linkedin.com/in/pedram-mohammad-ali-pour-b44721141" target="_blank" rel="noopener" data-i18n="linkedin">LinkedIn <i>↗</i></a></li>
+        <li><a href="https://github.com/P-B1101" target="_blank" rel="noopener" data-i18n="github">GitHub <i>↗</i></a></li>
       </ul>
     </section>
   </main>
 
   <footer class="foot mono">
-    <span>© <span class="yr">2026</span> Pedram Mohammad Ali Pour</span>
-    <a href="#top">Back to the start ↑</a>
+    <span data-i18n="foot.name">© <span class="yr">2026</span> Pedram Mohammad Ali Pour</span>
+    <a href="#top" data-i18n="foot.top">Back to the start ↑</a>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

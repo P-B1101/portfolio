@@ -13,7 +13,7 @@
   --line: rgba(23, 23, 23, .14);
 
   --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --mono: "JetBrains Mono", "Vazirmatn", ui-monospace, Menlo, monospace;
 
   --gutter: clamp(16px, 4vw, 56px);
   --ease-out: cubic-bezier(.16, 1, .3, 1);
@@ -180,14 +180,14 @@ a { color: inherit; }
 .is-3d .hud { display: block; position: absolute; inset: 0; z-index: 4; pointer-events: none; }
 .hud::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--amber); transform-origin: left; transform: scaleX(var(--p, 0)); }
 .hud-year {
-  position: absolute; left: var(--gutter); bottom: 28px; overflow: hidden; height: 1em;
+  position: absolute; inset-inline-start: var(--gutter); bottom: 28px; overflow: hidden; height: 1em;
   font-size: clamp(2.6rem, 6vw, 5.4rem); font-weight: 900; line-height: 1; letter-spacing: -.04em; font-variation-settings: "wdth" 125;
   color: var(--amber);
 }
 .hud-now { display: block; }
 .hud-now.flip { animation: flip .5s var(--ease-out); }
 @keyframes flip { from { transform: translateY(100%); opacity: 0; } }
-.rail { position: absolute; right: var(--gutter); top: 50%; transform: translateY(-50%); list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; pointer-events: auto; }
+.rail { position: absolute; inset-inline-end: var(--gutter); top: 50%; transform: translateY(-50%); list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; pointer-events: auto; }
 .rail button {
   all: unset; cursor: pointer; display: flex; align-items: center; justify-content: flex-end; gap: 10px;
   font-family: var(--mono); font-size: .7rem; color: var(--dim); padding: 3px 0;
@@ -419,11 +419,11 @@ a { color: inherit; }
   .journey .ch .card { order: 0 !important; }
   .is-3d .journey .ch { width: 88vw; }
   .is-3d .prop { transform: translateZ(60px) scale(.62); margin: -70px 0; }
-  .is-3d .ch.intro-ch .prop { transform: translateZ(60px) scale(.5); margin: -110px 0 -130px; }
+  .is-3d .ch.intro-ch .prop { transform: translateZ(60px) scale(.5); margin: -110px 0 -95px; }
   .code pre { font-size: .72rem; }
   .rail { display: none; }
   .hud-year { bottom: 20px; font-size: 2.4rem; }
-  .is-3d .hint { left: auto; right: var(--gutter); transform: none; }
+  .is-3d .hint { left: auto; inset-inline-end: var(--gutter); transform: none; }
   .stack-grid { grid-template-columns: 1fr; }
   .orbit-wrap { height: 340px; }
   .orbit span { font-size: 1.1rem; transform: translate(-50%, -50%) rotateY(calc(var(--n) * 30deg)) translateZ(140px); transform: translate(-50%, -50%) rotateY(calc(var(--n) * 30deg)) translateZ(140px) translateY(calc(sin(var(--n) * 60deg) * 50px)); }
@@ -484,3 +484,42 @@ a { color: inherit; }
 .cv-card.fancy:hover { box-shadow: 10px 10px 0 var(--paper); }
 .cv-card:hover i { transform: translateY(3px) scale(1.1); }
 @media (max-width: 560px) { .cv-menu summary { padding: 7px 11px; font-size: .84rem; } }
+
+/* ---------- language switch ---------- */
+.lang-switch {
+  display: grid; place-items: center; min-width: 38px; font-weight: 700 !important;
+  border: 1px solid rgba(255,255,255,.18);
+}
+.lang-switch:lang(fa) { font-family: "Vazirmatn", var(--display); }
+
+/* =================================================================
+   FARSI / RIGHT-TO-LEFT
+   Persian letters join, so no negative tracking anywhere, and the
+   script needs more line height than the tight Latin display settings.
+   ================================================================= */
+[dir="rtl"] body { font-family: "Vazirmatn", var(--display); }
+[dir="rtl"] body * { letter-spacing: 0 !important; }
+[dir="rtl"] .name { line-height: 1.15; font-weight: 900; }
+[dir="rtl"] .name .line { padding-bottom: .12em; }
+[dir="rtl"] .name .line.small { font-size: .4em; font-weight: 700; margin-top: .1em; }
+[dir="rtl"] .journey h2 { line-height: 1.3; font-weight: 900; }
+[dir="rtl"] .section-title, [dir="rtl"] .contact h2 { line-height: 1.25; font-weight: 900; }
+[dir="rtl"] .hud-year { height: 1.3em; line-height: 1.3; font-size: clamp(2.2rem, 5vw, 4.6rem); }
+[dir="rtl"] .ghost { font-weight: 800; }
+[dir="rtl"] .facts dd { line-height: 1.1; }
+[dir="rtl"] .hud::before { transform-origin: right; }
+[dir="rtl"] .rail button span { transform: translateX(-6px); }
+[dir="rtl"] .rail button:hover span, [dir="rtl"] .rail .on span { transform: none; }
+[dir="rtl"] .is-3d .prop { --side: -1; }
+[dir="rtl"] .is-3d .ch[data-x="1"] .prop { --side: 1; }
+[dir="rtl"] .photo::before { transform: translate3d(-20px, 20px, -60px); }
+[dir="rtl"] .photo::after { transform: translate3d(16px, -16px, 50px); }
+[dir="rtl"] .cv-card:hover { transform: translate(3px, -3px) rotateX(6deg) rotateY(6deg); }
+[dir="rtl"] .socials a:hover i { transform: translate(-3px, -3px) rotate(-45deg); }
+/* things that are Latin by nature stay left-to-right */
+[dir="rtl"] .code, [dir="rtl"] .browser .win-bar, [dir="rtl"] .bcard span, [dir="rtl"] .mail,
+[dir="rtl"] .orbit, [dir="rtl"] .tools span, [dir="rtl"] .cv-card .mono { direction: ltr; }
+[dir="rtl"] .mail { display: inline-block; }
+[dir="rtl"] .mono { font-family: "Vazirmatn", var(--display); font-size: .86rem; }
+[dir="rtl"] .code .mono, [dir="rtl"] .code pre, [dir="rtl"] .url, [dir="rtl"] .bcard .mono, [dir="rtl"] .cv-card .mono { font-family: var(--mono); font-size: .78rem; }
+.cv-menu summary { white-space: nowrap; }

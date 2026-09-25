@@ -10,8 +10,11 @@
   const lerp = (a, b, t) => a + (b - a) * t;
 
   const year = new Date().getFullYear();
-  document.querySelectorAll('.yr').forEach(el => { el.textContent = year; });
-  document.querySelectorAll('.since').forEach(el => { el.textContent = year - 2017; });
+  const fa = document.documentElement.lang === 'fa';
+  const num = n => fa ? n.toLocaleString('fa-IR', { useGrouping: false }) : String(n);
+  document.querySelectorAll('.yr').forEach(el => { el.textContent = num(year); });
+  document.querySelectorAll('.since').forEach(el => { el.textContent = num(year - 2017); });
+  if (fa) document.querySelectorAll('.num').forEach(el => { el.textContent = num(+el.textContent); });
 
   /* ---------------- the journey ---------------- */
   const journey = document.querySelector('.journey');
@@ -53,7 +56,8 @@
       STEP = innerHeight * 1.15;
       journey.style.height = (n - 1) * STEP + innerHeight + 'px';
       top = journey.getBoundingClientRect().top + scrollY;
-      xs = chapters.map(ch => (+ch.dataset.x || 0) * XO);
+      // right-to-left mirrors the corridor so the camera weaves the other way
+      xs = chapters.map(ch => (+ch.dataset.x || 0) * XO * (fa ? -1 : 1));
       chapters.forEach((ch, i) => {
         ch.style.transform = `translate3d(calc(-50% + ${xs[i]}px), -50%, ${-i * D}px)`;
       });
@@ -158,7 +162,7 @@
   }
 
   /* ---------------- header ---------------- */
-  const nav = [...document.querySelectorAll('.nav a')];
+  const nav = [...document.querySelectorAll('.nav a[href^="#"]')];
   const sections = nav.map(a => document.querySelector(a.getAttribute('href')));
   const bar = document.querySelector('.bar');
   let lastY = scrollY;
@@ -171,6 +175,17 @@
     bar.classList.toggle('hide', scrollY > lastY && scrollY > 200);
     lastY = scrollY;
   }, { passive: true });
+
+  /* ---------------- language switch ----------------
+     Prefer remembering the choice and reloading; fall back to the ?lang= link. */
+  const sw = document.querySelector('.lang-switch');
+  if (sw) sw.addEventListener('click', e => {
+    const target = fa ? 'en' : 'fa';
+    if (new URLSearchParams(location.search).has('lang')) return;
+    try { localStorage.setItem('lang', target); } catch (err) { return; }
+    e.preventDefault();
+    location.reload();
+  });
 
   /* ---------------- CV menu: close on outside click or Escape ---------------- */
   const cvMenu = document.querySelector('.cv-menu');
