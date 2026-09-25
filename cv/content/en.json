@@ -1,14 +1,16 @@
 {
   "lang": "en",
   "dir": "ltr",
-  "name": "Pedram Mohammad Ali Pour",
+  "name": "Pedram MohammadAliPour",
   "role": "Flutter Software Engineer",
   "summary": "I'm a mobile developer with over nine years of experience building Android and Flutter apps. I started with native Android and have focused on Flutter since 2019, delivering cross-platform apps with clean architecture and solid performance. At Dotin I work on financial and ERP apps, and freelance work has sharpened how I manage time, talk with clients and ship production-ready code on my own.",
   "contact": {
     "email": "pedramxiii@gmail.com",
     "linkedin": "linkedin.com/in/pedram-mohammad-ali-pour-b44721141",
     "github": "github.com/P-B1101",
-    "website": "pedram-malakshah.ir"
+    "website": "pedram-malakshah.ir",
+    "phone": "+98 938 571 5855",
+    "location": "Tehran, Iran"
   },
   "labels": {
     "summary": "Profile",
@@ -25,7 +27,8 @@
       "android": "Android",
       "ios": "iOS",
       "web": "Web"
-    }
+    },
+    "freelance": "Freelance"
   },
   "experience": [
     {
@@ -60,7 +63,7 @@
     {
       "company": "Paratech Co",
       "title": "Android Developer",
-      "from": "Aug 2017",
+      "from": "Jul 2017",
       "to": "Apr 2022",
       "notes": [
         "The only mobile developer, taking apps from UI design to release; moved to Flutter after two years."
@@ -120,6 +123,27 @@
         "android",
         "ios"
       ]
+    },
+    {
+      "name": "Vehicle Tracker",
+      "desc": "Live tracking, route playback, remote door lock",
+      "year": "2026",
+      "platforms": [],
+      "freelance": true
+    },
+    {
+      "name": "Stolz",
+      "desc": "Elevator engine monitoring with real-time diagnostics",
+      "year": "2024",
+      "platforms": [],
+      "freelance": true
+    },
+    {
+      "name": "iClassifier Offline",
+      "desc": "Controller and capture apps on a local network",
+      "year": "2024",
+      "platforms": [],
+      "freelance": true
     }
   ],
   "skills": [

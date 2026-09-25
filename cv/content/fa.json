@@ -8,7 +8,9 @@
     "email": "pedramxiii@gmail.com",
     "linkedin": "linkedin.com/in/pedram-mohammad-ali-pour-b44721141",
     "github": "github.com/P-B1101",
-    "website": "pedram-malakshah.ir"
+    "website": "pedram-malakshah.ir",
+    "phone": "+98 938 571 5855",
+    "location": "تهران، ایران"
   },
   "labels": {
     "summary": "درباره من",
@@ -25,7 +27,8 @@
       "android": "اندروید",
       "ios": "iOS",
       "web": "وب"
-    }
+    },
+    "freelance": "فریلنس"
   },
   "experience": [
     {
@@ -60,7 +63,7 @@
     {
       "company": "پاراتک",
       "title": "توسعه‌دهنده اندروید",
-      "from": "شهریور ۱۳۹۶",
+      "from": "تیر ۱۳۹۶",
       "to": "فروردین ۱۴۰۱",
       "notes": [
         "تنها توسعه‌دهنده موبایل، از طراحی رابط کاربری تا انتشار؛ دو سال بعد، مهاجرت به فلاتر."
@@ -120,6 +123,27 @@
         "android",
         "ios"
       ]
+    },
+    {
+      "name": "Vehicle Tracker",
+      "desc": "ردیابی زنده، بازپخش مسیر و قفل درها از راه دور",
+      "year": "۱۴۰۴",
+      "platforms": [],
+      "freelance": true
+    },
+    {
+      "name": "Stolz",
+      "desc": "پایش موتور آسانسور با عیب‌یابی لحظه‌ای",
+      "year": "۱۴۰۳",
+      "platforms": [],
+      "freelance": true
+    },
+    {
+      "name": "iClassifier Offline",
+      "desc": "اپلیکیشن کنترل و ضبط روی شبکه محلی، با ویدئوی زنده",
+      "year": "۱۴۰۳",
+      "platforms": [],
+      "freelance": true
     }
   ],
   "skills": [

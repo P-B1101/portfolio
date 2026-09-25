@@ -48,33 +48,33 @@ const range = (c, x) => `${esc(x.from)} – ${x.to ? esc(x.to) : esc(c.labels.pr
 /* ---------------- professional: text only ---------------- */
 const professional = c => `<!doctype html><html lang="${c.lang}" dir="${c.dir}"><head><meta charset="utf-8"><title>${esc(c.name)} CV</title><style>
 ${base(c)}
-.page { padding: 18mm 20mm; color: #111; font-size: 9.6pt; line-height: 1.5; }
-header { border-bottom: 1.2pt solid #111; padding-bottom: 5mm; margin-bottom: 6mm; }
+.page { padding: 14mm 18mm; color: #111; font-size: 9.2pt; line-height: 1.45; }
+header { border-bottom: 1.2pt solid #111; padding-bottom: 4mm; margin-bottom: 5mm; }
 h1 { font-size: 24pt; font-weight: 800; letter-spacing: ${c.dir === 'rtl' ? '0' : '-.02em'}; line-height: 1.1; }
 .role { font-size: 12pt; margin-top: 1mm; color: #333; }
 .contact { display: flex; flex-wrap: wrap; gap: 1mm 5mm; margin-top: 3mm; font-size: 8.8pt; color: #333; }
-section { margin-bottom: 5.5mm; }
+section { margin-bottom: 4mm; }
 h2 { font-size: 9pt; font-weight: 700; letter-spacing: ${c.dir === 'rtl' ? '0' : '.12em'}; text-transform: uppercase; color: #111; border-bottom: .5pt solid #bbb; padding-bottom: 1mm; margin-bottom: 2.5mm; }
 .row { display: flex; justify-content: space-between; gap: 6mm; align-items: baseline; }
-.job { margin-bottom: 3mm; }
+.job { margin-bottom: 2.2mm; }
 .job h3 { font-size: 10.5pt; font-weight: 700; }
 .job .t { color: #333; }
 .date { color: #555; white-space: nowrap; font-size: 9pt; }
 .job li, .proj li { position: relative; padding-inline-start: 4mm; }
 .job li::before { content: "–"; position: absolute; inset-inline-start: 0; }
-.proj li { padding-inline-start: 0; margin-bottom: 1.2mm; }
+.proj li { padding-inline-start: 0; margin-bottom: .4mm; }
 .proj b { font-weight: 700; }
 .proj .meta { color: #555; }
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10mm; }
 /* Farsi skill names are longer, so they get one column */
 .skills { columns: ${c.dir === 'rtl' ? 1 : 2}; column-gap: 10mm; }
-.skills li { break-inside: avoid; }
+.skills li { break-inside: avoid; line-height: 1.38; }
 </style></head><body><div class="page">
 <header>
   <h1>${esc(c.name)}</h1>
   <p class="role">${esc(c.role)}</p>
   <div class="contact">
-    <span class="ltr">${esc(c.contact.email)}</span><span class="ltr">${esc(c.contact.linkedin)}</span><span class="ltr">${esc(c.contact.github)}</span><span class="ltr">${esc(c.contact.website)}</span>
+    <span class="ltr">${esc(c.contact.email)}</span><span class="ltr">${esc(c.contact.linkedin)}</span><span class="ltr">${esc(c.contact.github)}</span><span class="ltr">${esc(c.contact.website)}</span><span class="ltr">${esc(c.contact.phone)}</span><span>${esc(c.contact.location)}</span>
   </div>
 </header>
 <section><h2>${esc(c.labels.summary)}</h2><p>${esc(c.summary)}</p></section>
@@ -83,7 +83,7 @@ ${c.experience.map(j => `<div class="job"><div class="row"><h3>${esc(j.company)}
 ${j.notes ? `<ul>${j.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}</div>`).join('')}
 </section>
 <section class="proj"><h2>${esc(c.labels.projects)}</h2><ul>
-${c.projects.map(p => `<li><div class="row"><span><b>${esc(p.name)}</b> · ${esc(p.desc)}</span><span class="meta">${p.platforms.map(x => esc(c.labels.platforms[x])).join(c.lang === 'fa' ? '، ' : ', ')}${p.internal ? ` (${esc(c.labels.internal)})` : ''} · ${esc(p.year)}</span></div></li>`).join('')}
+${c.projects.map(p => `<li><div class="row"><span><b>${esc(p.name)}</b> · ${esc(p.desc)}</span><span class="meta">${[...p.platforms.map(x => esc(c.labels.platforms[x])), ...(p.freelance ? [esc(c.labels.freelance)] : [])].join(c.lang === 'fa' ? '، ' : ', ')}${p.internal ? ` (${esc(c.labels.internal)})` : ''} · ${esc(p.year)}</span></div></li>`).join('')}
 </ul></section>
 <div class="cols">
 <section><h2>${esc(c.labels.skills)}</h2><ul class="skills">${c.skills.map(s => `<li>${esc(s.name)}</li>`).join('')}</ul></section>
@@ -115,16 +115,16 @@ aside h2::after { content: ""; flex: 1; height: .5pt; background: rgba(255,185,0
 .dots i.on { background: var(--amber); }
 .tl li { display: flex; align-items: center; gap: 2.5mm; margin-bottom: 1.8mm; font-size: 8.2pt; }
 .tl .ic { width: 4mm; height: 4mm; color: var(--amber); }
-main { padding: 14mm 12mm 10mm; display: flex; flex-direction: column; gap: 6mm; }
-.hd h1 { font-size: 27pt; line-height: 1; font-weight: 850; font-stretch: ${c.dir === 'rtl' ? '100%' : '118%'}; letter-spacing: ${c.dir === 'rtl' ? '0' : '-.03em'}; }
+main { padding: 12mm 12mm 9mm; display: flex; flex-direction: column; gap: 5mm; }
+.hd h1 { font-size: 25pt; line-height: 1; font-weight: 850; font-stretch: ${c.dir === 'rtl' ? '100%' : '118%'}; letter-spacing: ${c.dir === 'rtl' ? '0' : '-.03em'}; }
 .tag { display: inline-flex; align-items: center; gap: 2mm; margin-top: 3mm; background: var(--amber); color: var(--ink); padding: 1.2mm 3.5mm; border-radius: 99px; font-weight: 700; font-size: 9pt; }
 .tag .ic { width: 3.6mm; height: 3.6mm; }
-.sum { font-size: 9.6pt; color: #333; margin-top: 4mm; }
-main h2 { display: flex; align-items: center; gap: 2.5mm; font-size: 12pt; font-weight: 800; margin-bottom: 3.5mm; }
+.sum { font-size: 9.2pt; color: #333; margin-top: 4mm; }
+main h2 { display: flex; align-items: center; gap: 2.5mm; font-size: 12pt; font-weight: 800; margin-bottom: 3mm; }
 main h2 .ic { width: 6.2mm; height: 6.2mm; padding: 1.3mm; box-sizing: content-box; background: var(--ink); color: var(--amber); border-radius: 2mm; }
 .xp { position: relative; padding-inline-start: 6mm; }
 .xp::before { content: ""; position: absolute; top: 1.5mm; bottom: 1.5mm; inset-inline-start: 1.1mm; width: .8pt; background: var(--ink); }
-.xp li { position: relative; margin-bottom: 3mm; }
+.xp li { position: relative; margin-bottom: 2.4mm; }
 .xp li::before { content: ""; position: absolute; top: 1.2mm; inset-inline-start: -6mm; width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--paper); border: .8pt solid var(--ink); }
 .xp li.now::before { background: var(--amber); box-shadow: 0 0 0 1mm rgba(255,185,0,.3); }
 .xp .row { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
@@ -132,20 +132,22 @@ main h2 .ic { width: 6.2mm; height: 6.2mm; padding: 1.3mm; box-sizing: content-b
 .xp .t { color: var(--mute); font-weight: 500; }
 .xp .d { font-size: 7.6pt; color: var(--mute); white-space: nowrap; }
 .xp li.now .d { color: var(--ink); background: var(--amber); padding: .3mm 2mm; border-radius: 99px; }
-.xp p { color: #444; margin-top: .6mm; }
-.pj { display: grid; grid-template-columns: 1fr 1fr; gap: 2.8mm; }
-.pj li { background: #fff; border: .6pt solid var(--line); border-radius: 3mm; padding: 3mm 3.5mm; position: relative; }
+.xp p { color: #444; margin-top: .4mm; line-height: 1.38; }
+.pj { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm; }
+.pj li { background: #fff; border: .6pt solid var(--line); border-radius: 3mm; padding: 2.6mm 3mm; position: relative; display: flex; flex-direction: column; }
 .pj li:nth-child(1) { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .pj li:nth-child(1) .pd { color: var(--dim); }
-.pj b { font-size: 9.8pt; font-weight: 800; display: block; }
-.pd { color: var(--mute); font-size: 8pt; display: block; margin-top: .5mm; min-height: 2.4em; }
-.pf { display: flex; align-items: center; gap: 1.6mm; margin-top: 2mm; font-size: 7.4pt; }
+.pj b { font-size: 9.2pt; font-weight: 800; display: block; }
+.pd { color: var(--mute); font-size: 7.4pt; line-height: 1.35; display: block; margin-top: .5mm; }
+.pf { display: flex; align-items: center; gap: 1.6mm; margin-top: auto; padding-top: 2mm; font-size: 7pt; }
 .pf .ic { width: 3.6mm; height: 3.6mm; }
 .pf .yr { margin-inline-start: auto; font-weight: 700; background: var(--amber); color: var(--ink); padding: .2mm 2mm; border-radius: 99px; }
 .pf .int { color: var(--mute); border: .5pt dashed var(--mute); border-radius: 99px; padding: 0 1.6mm; }
-.ed { display: flex; align-items: center; justify-content: space-between; gap: 4mm; background: #fff; border: .6pt solid var(--line); border-radius: 3mm; padding: 3mm 4mm; }
-.ed b { font-weight: 800; font-size: 10pt; display: block; }
-.ed span { color: var(--mute); }
+.ed { display: flex; align-items: flex-start; gap: 2.5mm; font-size: 8.2pt; line-height: 1.35; }
+.ed .ic { width: 4mm; height: 4mm; color: var(--amber); margin-top: .3mm; }
+.ed b { font-weight: 700; display: block; }
+.ed span { display: block; color: var(--dim); }
+.ed .mono { font-size: 7.4pt; margin-top: .8mm; color: var(--amber); }
 .more { margin-top: auto; display: flex; align-items: center; gap: 2mm; font-size: 8pt; color: var(--mute); }
 .more a { color: var(--ink); font-weight: 700; border-bottom: .8pt solid var(--amber); }
 </style></head><body><div class="page">
@@ -156,6 +158,8 @@ main h2 .ic { width: 6.2mm; height: 6.2mm; padding: 1.3mm; box-sizing: content-b
     <li>${icon('linkedin')}<a href="https://${esc(c.contact.linkedin)}">${esc(c.contact.linkedin.replace('linkedin.com/in/', 'in/'))}</a></li>
     <li>${icon('github')}<a href="https://${esc(c.contact.github)}">${esc(c.contact.github)}</a></li>
     <li>${icon('l-globe')}<a href="https://${esc(c.contact.website)}">${esc(c.contact.website)}</a></li>
+    <li>${icon('l-smartphone')}<a href="tel:${esc(c.contact.phone.replace(/\s/g, ''))}">${esc(c.contact.phone)}</a></li>
+    <li>${icon('l-map-pin')}<span dir="auto">${esc(c.contact.location)}</span></li>
   </ul></section>
   <section><h2>${esc(c.labels.skills)}</h2><ul class="sk">
     ${c.skills.map(s => `<li><span>${esc(s.name)}</span><span class="dots">${[1, 2, 3].map(i => `<i class="${i <= s.level ? 'on' : ''}"></i>`).join('')}</span></li>`).join('')}
@@ -163,6 +167,9 @@ main h2 .ic { width: 6.2mm; height: 6.2mm; padding: 1.3mm; box-sizing: content-b
   <section><h2>${esc(c.labels.tools)}</h2><ul class="tl">
     ${c.tools.map((t, i) => `<li>${icon(toolIcon[i])}<span>${esc(t)}</span></li>`).join('')}
   </ul></section>
+  <section><h2>${esc(c.labels.education)}</h2>
+    <div class="ed">${icon('l-graduation-cap')}<div><b>${esc(c.education.field)}</b><span>${esc(c.education.school)}</span><span class="mono">${esc(c.education.from)} – ${esc(c.education.to)}</span></div></div>
+  </section>
 </aside>
 <main>
   <div class="hd">
@@ -174,11 +181,8 @@ main h2 .ic { width: 6.2mm; height: 6.2mm; padding: 1.3mm; box-sizing: content-b
     ${c.experience.map(j => `<li class="${j.to ? '' : 'now'}"><div class="row"><h3>${esc(j.company)} <span class="t">· ${esc(j.title)}</span></h3><span class="d">${range(c, j)}</span></div>${(j.notes || []).map(n => `<p>${esc(n)}</p>`).join('')}</li>`).join('')}
   </ul></section>
   <section><h2>${icon('l-smartphone')}${esc(c.labels.projects)}</h2><ul class="pj">
-    ${c.projects.map(p => `<li><b>${esc(p.name)}</b><span class="pd">${esc(p.desc)}</span><span class="pf">${p.platforms.map(x => icon(platIcon[x])).join('')}${p.internal ? `<span class="int">${esc(c.labels.internal)}</span>` : ''}<span class="yr">${esc(p.year)}</span></span></li>`).join('')}
+    ${c.projects.map(p => `<li><b>${esc(p.name)}</b><span class="pd">${esc(p.desc)}</span><span class="pf">${p.platforms.map(x => icon(platIcon[x])).join('')}${p.internal ? `<span class="int">${esc(c.labels.internal)}</span>` : ''}${p.freelance ? `<span class="int">${esc(c.labels.freelance)}</span>` : ''}<span class="yr">${esc(p.year)}</span></span></li>`).join('')}
   </ul></section>
-  <section><h2>${icon('l-graduation-cap')}${esc(c.labels.education)}</h2>
-    <div class="ed"><div><b>${esc(c.education.field)}</b><span>${esc(c.education.school)}</span></div><span class="mono">${esc(c.education.from)} – ${esc(c.education.to)}</span></div>
-  </section>
   <p class="more">${esc(c.labels.more)} <a class="ltr" href="https://${esc(c.contact.website)}">${esc(c.contact.website)}</a></p>
 </main>
 </div></body></html>`;
