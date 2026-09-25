@@ -135,14 +135,19 @@
       "name": "Stolz",
       "desc": "پایش موتور آسانسور با عیب‌یابی لحظه‌ای",
       "year": "۱۴۰۳",
-      "platforms": [],
+      "platforms": [
+        "android",
+        "ios"
+      ],
       "freelance": true
     },
     {
       "name": "iClassifier Offline",
       "desc": "اپلیکیشن کنترل و ضبط روی شبکه محلی، با ویدئوی زنده",
       "year": "۱۴۰۳",
-      "platforms": [],
+      "platforms": [
+        "android"
+      ],
       "freelance": true
     }
   ],

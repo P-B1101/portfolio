@@ -135,14 +135,19 @@
       "name": "Stolz",
       "desc": "Elevator engine monitoring with real-time diagnostics",
       "year": "2024",
-      "platforms": [],
+      "platforms": [
+        "android",
+        "ios"
+      ],
       "freelance": true
     },
     {
       "name": "iClassifier Offline",
       "desc": "Controller and capture apps on a local network",
       "year": "2024",
-      "platforms": [],
+      "platforms": [
+        "android"
+      ],
       "freelance": true
     }
   ],
